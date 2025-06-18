@@ -1,210 +1,180 @@
 "use client";
-import React, { useState }  from 'react';
-import { Search  , ScanLine, Mic, ChevronDown, User, UserCheck, GraduationCap} from 'lucide-react';
-import PromoBanner from './PromoBanner';
-import StudentRegistration from './Student/StudentRegistrationstep1';
-import StudentSignIn from './Student/StudentSignIn';
-import ShopkeeperRegistration from './Shopkeeper/ShopkeeperRegistration';
+import React, { useState } from "react";
+import {
+  Search,
+  ShoppingCart,
+  Heart,
+  User,
+  MapPin,
+  ChevronDown,
+  Menu,
+} from "lucide-react";
 
 const Header = () => {
- const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-const [showStudentModal, setShowStudentModal] = useState(false);
-const [isStudentSignInOpen, setIsStudentSignInOpen] = useState(false);
-const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
-  const handleMouseEnter = (dropdown: string) => {
-    setActiveDropdown(dropdown);
-  };
-
-  const handleMouseLeave = () => {
-    setActiveDropdown(null);
-  };
-
-  const handleOpenStudentModal = () => {
-  setShowStudentModal(true);
-  setActiveDropdown(null); // Close the dropdown when opening the modal
-};
-
-const handleStudentSignIn = () => {
-  setIsStudentSignInOpen(true);
-  setActiveDropdown(null); // Close the dropdown when opening the modal
-};
-
-const handleShopkeeperRegister = () => {
-  setIsShopkeeperModalOpen(true);
-  setActiveDropdown(null); // Close dropdown
-};
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <header className="w-full">
- {showStudentModal && (
-      <div className="fixed inset-0 z-50 backdrop-blur-[2px] bg-transparent flex items-center justify-center p-4">
-        <StudentRegistration 
-          onClose={() => setShowStudentModal(false)} 
-          onBack={() => setShowStudentModal(false)} 
-        />
-      </div>
-    )}
-       {isStudentSignInOpen && (
-      <div className="fixed inset-0 z-50 backdrop-blur-[2px]w-full bg-transparent flex items-center justify-center p-4">
-        <div className=" rounded-lg shadow-xl w-full max-w-5xl">
-          <StudentSignIn onClose={() => setIsStudentSignInOpen(false)}/>
-         
+      {/* Top Banner */}
+      <div className="bg-white text-black text-center py-2 px-4 font-bold text-[14px] leading-[100%] tracking-[0.02em] font-asap">
+  <div className="flex items-center justify-center">
+    <span className="mr-4">
+      BY CONTINUING TO USE SITE YOU AGREE TO US USING COOKIES IN
+      ACCORDANCE WITH OUR
+    </span>
+    <a href="#" className="underline mr-4 text-[#3F3FE0]">
+      COOKIE POLICY.
+    </a>
+          <button className="bg-yellow-400 text-black px-3 py-1 rounded text-xs font-semibold">
+            ACCEPT and CLOSE
+          </button>
         </div>
       </div>
-    )}
 
-{isShopkeeperModalOpen && (
-  <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black/30 flex items-center justify-center p-4">
-    <ShopkeeperRegistration onClose={() => setIsShopkeeperModalOpen(false)} />
+      {/* Promotional Banner */}
+      <div className="bg-red-600 text-black text-center py-2 font-asap font-bold text-[14px] leading-[100%] tracking-[0.02em]">
+  <div className="flex items-center justify-center">
+    <div className="flex items-center space-x-4">
+      <span className=" text-white px-2 py-1 rounded text-[14px] font-asap font-bold leading-[100%] tracking-[0.02em]">
+        Free Listing for first 100 Shopkeepers
+      </span>
+    </div>
   </div>
-)}
+</div>
+<div className="w-[1440px] h-[50px] -mt-0.25 bg-[#302E2EDB] relative">
+  <div className="absolute top-[15px] left-[26px] w-[113px] h-[19px] bg-[#2867D9] rounded-[4px] text-white text-[12px] flex items-center justify-center font-medium">
+    Free Shipping
+  </div>
+</div>
 
- 
-  
-           {/* Promotional Banner */}
-       <div className="bg-red-600 text-black text-center py-2 font-asap font-bold text-[14px] leading-[100%] tracking-[0.02em]">
-   <div className="flex items-center justify-center">
-     <div className="flex items-center space-x-4">
-       <span className=" text-white px-2 py-1 rounded text-[14px] font-asap font-bold leading-[100%] tracking-[0.02em]">
-         Free Listing for first 100 Shopkeepers
-       </span>
-     </div>
-   </div>
- </div>
- <div className="w-[1500px] h-[50px] -mt-0.25 bg-[#302E2EDB] relative">
 
-     <PromoBanner/>
-  
- </div>
+
       {/* Main Header */}
-      <div style={{backgroundColor: '#1a1f71'}} className="px-4 py-3 flex items-center justify-between">
-        {/* Logo */}
-        <div style={{backgroundColor: '#666666'}} className="px-6 py-2 rounded">
-          <h1 className="text-white text-xl font-bold tracking-wider">DOBBY</h1>
-        </div>
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex items-center">
+              <h1 className="text-2xl font-bold bg-gray-800 text-white px-3 py-1">
+                DOBBY
+              </h1>
+            </div>
 
-     
-       {/* Search Bar */}
-        <div className="flex-1 max-w-2xl mx-8">
-          <div className="relative flex items-center bg-white rounded-md overflow-hidden">
-            <input
-              type="text"
-              placeholder="Search for Chair Cover"
-              className="flex-1 px-4 py-2.5 border-0 focus:outline-none text-gray-700 placeholder-gray-500 bg-white"
-            />
-            <button className="p-2.5 hover:bg-gray-50 border-r border-gray-300">
-                <Search className="w-5 h-5 text-gray-600" />
+            {/* Search Bar */}
+            <div className="flex-1 max-w-xl mx-8">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search for Chair Cover"
+                  className="w-full pl-4 pr-12 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+                />
+                <button className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                  <Search className="h-5 w-5 text-gray-400" />
+                </button>
+              </div>
+            </div>
+
+            {/* Right Side Icons */}
+            <div className="flex items-center space-x-6">
+              {/* Location */}
+              <div className="flex items-center text-sm">
+                <MapPin className="h-4 w-4 mr-1" />
+                <span>999909909</span>
+                <span className="ml-2">Austria-EUR</span>
+                <ChevronDown className="h-4 w-4 ml-1" />
+              </div>
+
+              {/* Language */}
+              <div className="flex items-center text-sm">
+                <span>Select Language</span>
+                <ChevronDown className="h-4 w-4 ml-1" />
+              </div>
+
+              {/* Country Flag */}
+              <div className="w-6 h-4 bg-blue-500 rounded"></div>
+
+              {/* Order Tracking */}
+              <button className="flex items-center text-sm">
+                <span>📦 Order Tracking</span>
               </button>
-            <div className="flex items-center border-l border-gray-300">
-              
-              <button className="p-2.5 hover:bg-gray-50 border-r border-gray-300">
-                <ScanLine className="w-5 h-5 text-gray-600" />
+
+              {/* Account */}
+              <button className="flex items-center text-sm">
+                <User className="h-4 w-4 mr-1" />
+                <span>My Account</span>
+                <ChevronDown className="h-4 w-4 ml-1" />
               </button>
-              <button className="p-2.5 hover:bg-gray-50">
-                <Mic className="w-5 h-5 text-gray-600" />
+
+              {/* Wishlist */}
+              <button className="flex items-center text-sm">
+                <Heart className="h-4 w-4 mr-1" />
+                <span>Wishlist</span>
+              </button>
+
+              {/* Cart */}
+              <button className="flex items-center text-sm">
+                <ShoppingCart className="h-4 w-4 mr-1" />
+                <span>My Cart</span>
               </button>
             </div>
           </div>
         </div>
-        {/* User Controls */}
-        <div className="flex items-center space-x-2 mx-8 ">
-          {/* User Dropdown */}
-          <div className="relative" onMouseEnter={() => handleMouseEnter('user')} onMouseLeave={handleMouseLeave}>
-          <button className="flex items-center space-x-1 px-4 py-2 rounded-sm text-[#39FF14] font-medium hover:opacity-90 transition-opacity border border-[#39FF14]" style={{backgroundColor: '#1a1f71'}}>
-            <span className="text-base">User</span>
-            <ChevronDown className="w-3 h-3" />
-          </button>
-           {activeDropdown === 'user' && (
-              <div className="absolute top-full mt-1 left-0 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                <div className="py-2">
-                  <div className="flex items-center px-4 py-2 text-gray-700 border-b border-gray-100">
-                    <User className="w-4 h-4 mr-2" />
-                    <span className="font-medium">User</span>
-                    <ChevronDown className="w-4 h-4 ml-auto text-green-600" />
-                  </div>
-                  <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Sign up</a>
-                  <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Sign in</a>
-                </div>
-              </div>
-            )}
-          </div>
-          {/* Shopkeeper Dropdown */}
-           <div className="relative" onMouseEnter={() => handleMouseEnter('shopkeeper')} onMouseLeave={handleMouseLeave}>
-          <button className="flex items-center space-x-1 px-4 py-2 rounded-sm text-[#39FF14] font-medium hover:opacity-90 transition-opacity border border-[#39FF14]" style={{backgroundColor: '#1a1f71'}} >
-            <span className="text-base">Shopkeeper</span>
-            <ChevronDown className="w-3 h-3" />
-          </button>
-          {activeDropdown === 'shopkeeper' && (
-              <div className="absolute top-full mt-1 left-0 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                <div className="py-2">
-                  <div className="flex items-center px-4 py-2 text-gray-700 border-b border-gray-100">
-                    <UserCheck className="w-4 h-4 mr-2" />
-                    <span className="font-medium">Shopkeeper</span>
-                    <ChevronDown className="w-4 h-4 ml-auto text-green-600" />
-                  </div>
-                  <a href="#" onClick={ handleShopkeeperRegister } className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Register Now</a>
-                  <a href="#" onClick={ handleShopkeeperRegister }  className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Sign in</a>
-                </div>
-              </div>
-            )}
-          </div>
-
-         {/* Student Dropdown */}
-          <div className="relative" onMouseEnter={() => handleMouseEnter('student')} onMouseLeave={handleMouseLeave}>
-             <button className="flex items-center space-x-1 px-4 py-2 rounded-sm text-[#39FF14] font-medium hover:opacity-90 transition-opacity border border-[#39FF14]" style={{backgroundColor: '#1a1f71'}} >
-              <span className="text-base">Student</span>
-              <ChevronDown className="w-3 h-3" />
-            </button>
-            {activeDropdown === 'student' && (
-              <div className="absolute top-full mt-1 -left-10 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                <div className="py-2">
-                  <div className="flex items-center px-4 py-2 text-gray-700 border-b border-gray-100">
-                    <GraduationCap className="w-4 h-4 mr-2" />
-                    <span className="font-medium">Student</span>
-                    <ChevronDown className="w-4 h-4 ml-auto text-green-600" />
-                  </div>
-                  <a href="#" onClick={handleOpenStudentModal} className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Register Now</a>
-                  <a href="#" onClick={handleStudentSignIn}  className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Sign in</a>
-                </div>
-              </div>
-            )}
-          </div>
-        </div>
       </div>
-     
 
       {/* Navigation Menu */}
-      <div style={{backgroundColor: '#f1f5f9'}} className="px-4 py-3 border-b border-gray-300">
-        <nav className="flex justify-center gap-[60px]">
-          <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-            Patio Furniture Covers
-          </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-            Cushion & Pillow covers
-          </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-            Solar Shades
-          </a>
-          <a href="#" className="font-medium py-2 border-b-2" style={{color: '#2563eb', borderColor: '#2563eb'}}>
-            Custom Covers
-          </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-            Tarps & Curtains
-          </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b-2 border-transparent hover:border-blue-600 transition-colors">
-            Marine Covers
-          </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-1 border-b-2 border-transparent hover:border-blue-600 transition-colors relative">
-            Car Covers
-            <span className="absolute -top-1 -right-10 text-white text-xs px-1.5 py-0.5 rounded-full font-semibold" style={{backgroundColor: '#22c55e'}}>
-              New
-            </span>
-          </a>
-        </nav>
+      <div className="bg-white border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4">
+          <nav className="flex items-center space-x-8 h-12">
+            <a
+              href="#"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Patio Furniture Covers
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Cushion & Pillow covers
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Solar Shades
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium text-blue-600 hover:text-blue-700 border-b-2 border-blue-600 pb-3"
+            >
+              Custom Covers
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Tarps & Curtains
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900"
+            >
+              Marine Covers
+            </a>
+            <a
+              href="#"
+              className="text-sm font-medium text-gray-700 hover:text-gray-900 flex items-center"
+            >
+              Car Covers
+              <span className="ml-1 bg-green-500 text-white text-xs px-1 rounded">
+                NEW
+              </span>
+            </a>
+          </nav>
+        </div>
       </div>
-   </header>
+    </header>
   );
 };
 
 export default Header;
-
