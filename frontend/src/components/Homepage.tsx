@@ -77,19 +77,25 @@ const Homepage = () => {
     {
       name: "Perfect Patio Loveseat",
       price: "$31.60",
-      image: "🪑",
+      image: "/images/GroupA.png",
       originalPrice: "$40.00"
     },
     {
       name: "Perfect Patio Loveseat",
       price: "$31.60",
-      image: "🛋️",
+      image: "/images/GroupB.png",
       originalPrice: "$40.00"
     },
     {
       name: "Custom Patio Set",
       price: "$51.80",
-      image: "🏡",
+      image: "/images/GroupC.png",
+      originalPrice: "$65.00"
+    },
+    {
+      name: "Custom Patio Set",
+      price: "$51.80",
+      image: "/images/GroupD.png",
       originalPrice: "$65.00"
     }
   ]
@@ -216,37 +222,44 @@ const Homepage = () => {
 
 
       {/* Cart Products Section with Swiper 2 */}
-      <div className="py-8 px-4 bg-white">
+      <div className="py-8 px-4"  style={{
+    backgroundColor: '#F1F6FE',
+    width: '1440px',
+    height: '2^9px',
+    marginTop: '92px',
+  }}>
         <h2 className="text-2xl font-bold text-center mb-6">Products added in your cart</h2>
         <div className="relative max-w-4xl mx-auto">
-          <div className="flex items-center justify-center space-x-8">
-            <div className="bg-gray-50 rounded-lg p-4 w-48 text-center">
-              <div className="text-4xl mb-2">{cartProducts[cartSlide].image}</div>
-              <h3 className="font-semibold text-sm">{cartProducts[cartSlide].name}</h3>
-              <div className="flex justify-center items-center space-x-2 mt-2">
-                <span className="text-lg font-bold text-blue-600">{cartProducts[cartSlide].price}</span>
-                <span className="text-sm text-gray-500 line-through">{cartProducts[cartSlide].originalPrice}</span>
-              </div>
-            </div>
-            
-            <Plus className="w-6 h-6 text-gray-400" />
-            
-            <div className="bg-gray-50 rounded-lg p-4 w-48 text-center">
-              <div className="text-4xl mb-2">{cartProducts[(cartSlide + 1) % cartProducts.length].image}</div>
-              <h3 className="font-semibold text-sm">{cartProducts[(cartSlide + 1) % cartProducts.length].name}</h3>
-              <div className="flex justify-center items-center space-x-2 mt-2">
-                <span className="text-lg font-bold text-blue-600">{cartProducts[(cartSlide + 1) % cartProducts.length].price}</span>
-              </div>
-            </div>
-            
-            <span className="text-2xl font-bold">=</span>
-            
-            <div className="bg-green-100 rounded-lg p-4 w-48 text-center border-2 border-green-500">
-              <div className="text-green-600 font-bold">Bundle Deal</div>
-              <div className="text-2xl font-bold text-green-700">$75.99</div>
-              <div className="text-sm text-gray-600">Save 15%</div>
-            </div>
-          </div>
+         <div className="flex items-center justify-center space-x-4">
+  {cartProducts.slice(0, 3).map((product, index, arr) => (
+    <div key={index} className="flex items-center space-x-4">
+      <div className="bg-gray-50 rounded-lg p-4 text-center shadow-md hover:shadow-lg transition">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="h-32 mx-auto object-contain mb-2"
+        />
+      </div>
+
+      {/* Only show the Plus icon if it's not the last item */}
+      {index < arr.length - 1 && (
+        <Plus className="w-6 h-6 text-gray-400" />
+      )}
+    </div>
+  ))}
+
+  {/* Equal sign and final result box */}
+  <span className="text-2xl font-bold">=</span>
+  <div className=" p-4 w-48 text-center ">
+   
+     <img
+    src="/images/GroupD.png"
+    alt="Summary"
+    className="mx-auto h-24 object-contain"
+  />
+  </div>
+</div>
+
           
           {/* Cart Navigation */}
           <button 
