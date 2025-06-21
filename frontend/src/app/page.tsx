@@ -1,7 +1,13 @@
 // pages/index.js (or app/page.js for App Router)
 
+import BlogSection from "@/components/BlogSection";
+import CoverHeroSection from "@/components/CoverHeroSection";
+import FooterSection from "@/components/FooterSection";
 import Header from "@/components/Header";
+import Hero from "@/components/Hero";
 import Homepage from "@/components/Homepage";
+import RealStories from "@/components/RealStories";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 
 export default function Home() {
@@ -9,6 +15,12 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       <Homepage />
+      <Hero />
+      <CoverHeroSection/>
+      <RealStories/>
+      <BlogSection/>
+      <TestimonialsSection/>
+      <FooterSection/>
       {/* Page Content */}
       {/* <main className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">

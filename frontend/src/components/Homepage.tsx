@@ -315,61 +315,7 @@ const Homepage = () => {
       </div>
 
       {/* Featured Products Section with Swiper 4 */}
-      <div className="py-12 px-4 bg-gray-50">
-        <h2 className="text-3xl font-bold text-center mb-8">Featured Products</h2>
-        <div className="relative max-w-4xl mx-auto">
-          <div className="bg-white rounded-lg shadow-lg p-6">
-            <div className="grid grid-cols-2 gap-8">
-              <div className="space-y-4">
-                <div className="text-6xl text-center">{featuredProducts[productSlide].image}</div>
-                <div className="text-center">
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">
-                    {featuredProducts[productSlide].category}
-                  </span>
-                </div>
-              </div>
-              <div className="flex flex-col justify-center space-y-4">
-                <h3 className="text-2xl font-bold">{featuredProducts[productSlide].name}</h3>
-                <p className="text-gray-600">Premium quality furniture covers designed for maximum protection and style.</p>
-                <div className="flex items-center space-x-4">
-                  <span className="text-3xl font-bold text-blue-600">{featuredProducts[productSlide].price}</span>
-                  <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 rounded-lg flex items-center space-x-2">
-                    <ShoppingCart className="w-5 h-5" />
-                    <span>Add to Cart</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Products Navigation */}
-          <button 
-            onClick={() => prevSlide('product')}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-3 rounded-full"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button 
-            onClick={() => nextSlide('product')}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-3 rounded-full"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-          
-          {/* Product Dots */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {featuredProducts.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setProductSlide(index)}
-                className={`w-3 h-3 rounded-full ${
-                  index === productSlide ? 'bg-blue-500' : 'bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+      
     </div>
   )
 }
