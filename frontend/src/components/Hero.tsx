@@ -1,12 +1,11 @@
 "use client";
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight} from 'lucide-react';
-import StudentRegistration from './Student/StudentRegistrationstep1';
-import ShopkeeperRegistration from './Shopkeeper/ShopkeeperRegistration';
-import TrustBanner from './trust-banner';
+import { ChevronLeft, ChevronRight, Play, Edit3, Users, ShoppingCart, Search, Heart, User, MapPin, ChevronDown, Menu } from 'lucide-react';
+
 const Hero = () => {
-  const [showStudentModal, setShowStudentModal] = useState(false);
-  const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const products = [
     {
       id: 1,
@@ -42,46 +41,41 @@ const Hero = () => {
     }
   ];
 
-  // Removed nextSlide and prevSlide since currentSlide is not used
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % products.length);
+  };
 
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + products.length) % products.length);
+  };
 
-  function prevSlide(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    event.preventDefault();
-
-    console.log('Previous slide clicked');
-  }
-
-  function nextSlide(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
-    event.preventDefault();
-
-    console.log('Next slide clicked');
-  }
+  const howItWorksSteps = [
+    {
+      icon: <Edit3 className="w-8 h-8 text-blue-500" />,
+      title: "Ask to edit",
+      description: "Request changes to products or listings"
+    },
+    {
+      icon: <Users className="w-8 h-8 text-blue-500" />,
+      title: "Connect with vendors",
+      description: "Work directly with sellers"
+    },
+    {
+      icon: <ShoppingCart className="w-8 h-8 text-blue-500" />,
+      title: "Shop with confidence",
+      description: "Purchase quality products"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Modal */}
-    {showStudentModal && (
-  <div className="fixed inset-0 z-50 backdrop-blur-[2px] bg-transparent flex items-center justify-center p-4">
-    <StudentRegistration 
-      onClose={() => setShowStudentModal(false)} 
-      onBack={() => setShowStudentModal(false)} 
-    />
-  </div>
-)}
-
-{isShopkeeperModalOpen && (
-  <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black/30 flex items-center justify-center p-4">
-    <ShopkeeperRegistration onClose={() => setIsShopkeeperModalOpen(false)} />
-  </div>
-)}
-  
-      <TrustBanner/>
-
+    
+     
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="flex min-h-screen">
           {/* Left Section - Shopkeeper */}
-          <div className="flex-1 bg-gradient-to-br relative">
+          <div className="flex-1 bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 relative">
             {/* Background pattern/texture */}
             <div className="absolute inset-0 opacity-20">
               <div className="w-full h-full" style={{
@@ -91,10 +85,8 @@ const Hero = () => {
             
             <div className="relative z-10 flex flex-col justify-center items-center h-full p-8 text-center text-white">
               {/* Shopkeeper Image */}
-              
               <div className="relative mb-8">
-                
-                <div className="absolute w-[762px] h-[791px] top-[-50px] left-[-380px] overflow-hidden shadow-2xl">
+                <div className="absolute w-[760px] h-[701px] top-[-262px] left-[-379px]  overflow-hidden shadow-2xl">
                   <img 
                     src="/images/shop.png" 
                     alt="Shopkeeper in store" 
@@ -102,26 +94,32 @@ const Hero = () => {
                   />
                 </div>
                 {/* Play Button */}
-                
-               <div className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-4 ">
-
-   
-            </div>
+               <div className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-4">
+      <button className="bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-6 hover:bg-opacity-30 transition-all transform hover:scale-105">
+        <img
+          src="/images/play.png"
+          alt="Play"
+          className="w-12 h-12 object-contain"
+        />
+      </button>
+      <button className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition">
+        Join as Shopkeeper
+      </button>
+    </div>
               </div>
               
-              Shopkeeper CTA
-              <div className="space-y-4 z-10">
-                  <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-23 " />
-                <button  onClick={() => setShowStudentModal(true)} className="mt-50 w-[200px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
-      Join as a Shopkeeper
-    </button>
-        
+              {/* Shopkeeper CTA */}
+              <div className="space-y-4">
+               
+                <button className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-orange-50 transition-colors transform hover:scale-105">
+                  Join as Shopkeeper
+                </button>
               </div>
             </div>
           </div>
 
           {/* Right Section - Student */}
-          <div className="flex-1 bg-gradient-to-bl relative">
+          <div className="flex-1 bg-gradient-to-bl from-blue-400 via-blue-600 to-purple-700 relative">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-20">
               <div className="w-full h-full" style={{
@@ -132,7 +130,7 @@ const Hero = () => {
             <div className="relative z-10 flex flex-col justify-center items-center h-full p-8 text-center text-white">
               {/* Student Image */}
               <div className="relative mb-8">
-                <div className="absolute w-[762px] h-[791px] top-[-50px] left-[-380px] overflow-hidden shadow-2xl">
+                <div className="absolute w-[760px] h-[701px] top-[-262px] left-[-380px]  overflow-hidden shadow-2xl">
                   <img 
                     src="/images/student.png" 
                     alt="Student studying" 
@@ -141,16 +139,23 @@ const Hero = () => {
                 </div>
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                 
+                  <button className="bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-6 hover:bg-opacity-30 transition-all transform hover:scale-105">
+                    <img 
+                      src="/images/play.png" 
+                      alt="Student studying" 
+                      className="w-12 h-12 object-cover"
+                    />
+                  </button>
                 </div>
               </div>
               
               {/* Student CTA */}
-              <div className="space-y-4 z-10">
-                <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-36 " />
-                 <button  onClick={() => setShowStudentModal(true)} className="mt-50 w-[300px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
-      Join as a Student
-    </button>
+              <div className="space-y-4">
+                <h2 className="text-2xl font-bold">Join as Student</h2>
+                <p className="text-lg opacity-90">Discover and shop amazing products</p>
+                <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors transform hover:scale-105">
+                  Join as Student
+                </button>
               </div>
             </div>
           </div>
@@ -158,32 +163,32 @@ const Hero = () => {
       </div>
 
       {/* Trending Products Section */}
-      <div className=" w-full h-full mx-auto px-4 sm:px-6 lg:px-8 py-16 ">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Discover this season&#39;s trending must-haves now!
+            Discover this season's trending must-haves now!
           </h2>
         </div>
 
         {/* Product Carousel */}
         <div className="relative">
-          <div className="flex items-center justify-between mb-8  rounded-lg p-4 px-6 w-360 h-100">
+          <div className="flex items-center justify-between mb-8">
             <button 
               onClick={prevSlide}
-              className="absolute left-14 z-10 top-35  p-2 rounded-full bg-[#003056] hover:bg-gray-200 transition-colors"
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
             </button>
             
-            <div className="flex-1 mx-2 my-6   ">
+            <div className="flex-1 mx-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {products.map((product) => (
+                {products.map((product, index) => (
                   <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="relative">
                       <img 
                         src={product.image} 
                         alt={product.name}
-                        className="w-full h-58 object-cover"
+                        className="w-full h-48 object-cover"
                       />
                       <div className="absolute top-4 right-4">
                         <button className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow">
@@ -218,17 +223,17 @@ const Hero = () => {
             
             <button 
               onClick={nextSlide}
-              className="absolute right-18 top-40 transform -translate-y-1/2 p-2 rounded-full bg-[#003056] hover:bg-gray-200 transition-colors"
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
             >
-              <ChevronRight className="  w-6 h-6 text-gray-600" />
+              <ChevronRight className="w-6 h-6 text-gray-600" />
             </button>
           </div>
         </div>
       </div>
 
       {/* How it Works Section */}
-    
-<div className="bg-gray-50 ">
+     {/* How it Works Section (Updated) */}
+<div className="bg-gray-50 py-16">
   <div className="text-center mb-12">
     <h2 className="text-3xl font-bold text-gray-900">How it works</h2>
   </div>
@@ -257,7 +262,7 @@ const Hero = () => {
   </div>
 
   {/* Students Frame */}
-<div className="w-[1327px] h-[619px] mx-auto mb-12 px-[22px] py-6 border border-[#CCC9C9] flex items-center gap-[118px]">
+  <div className="w-[1327px] h-[619px] mx-auto px-[22px] py-6 border border-[#CCC9C9] flex items-center gap-[102px]">
     <div className="flex-1">
       <h3 className="text-2xl font-bold text-gray-800 mb-2">How does it works for Students?</h3>
       <p className="text-gray-600 mb-6 max-w-xl text-sm">

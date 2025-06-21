@@ -1,10 +1,11 @@
 "use client";
-import React from 'react';
-import { ChevronLeft, ChevronRight} from 'lucide-react';
+import React, { useState } from 'react';
+import { ChevronLeft, ChevronRight, Play, Edit3, Users, ShoppingCart, Search, Heart, User, MapPin, ChevronDown, Menu } from 'lucide-react';
 
 
 const CoverHeroSection = () => {
-// Removed unused currentSlide state
+ const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const products = [
     {
@@ -41,12 +42,16 @@ const CoverHeroSection = () => {
     }
   ];
 
-  // Removed nextSlide and prevSlide since currentSlide is not used
-  const nextSlide = () => {};
-  const prevSlide = () => {};
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % products.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + products.length) % products.length);
+  };
 
   return (
-    <div className="bg-white top-2">
+    <div className="bg-white">
       {/* Hero Section with Video */}
       <div className="relative h-[90vh] w-full overflow-hidden">
         <video
@@ -55,7 +60,7 @@ const CoverHeroSection = () => {
           muted
           loop
           playsInline
-          src="/videos/HOMEPAGE_1.mp4"  
+          src="/videos/HOMEPAGE_1.mp4" 
         ></video>
 
         {/* Overlay */}
@@ -64,7 +69,7 @@ const CoverHeroSection = () => {
         {/* Text & Button Overlay */}
         <div className="relative z-20 flex flex-col justify-center items-center h-full text-center text-white px-4">
           <h1 className="text-3xl md:text-5xl font-bold mb-6">
-            We&apos;ve got you covered, no matter what!
+            We've got you covered, no matter what!
           </h1>
           <button className="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
             Shop Custom Covers now
@@ -111,10 +116,10 @@ const CoverHeroSection = () => {
           </div>
         </div>
       </div>
-       <div className="w-full h-full mx-auto px-4 sm:px-6 lg:px-8 py-16 ">
+       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Discover this season&apos;s trending must-haves now!
+            Discover this season's trending must-haves now!
           </h2>
         </div>
 
@@ -123,20 +128,20 @@ const CoverHeroSection = () => {
           <div className="flex items-center justify-between mb-8">
             <button 
               onClick={prevSlide}
-              className="absolute left-16 z-10 top-28 p-2 rounded-full bg-[#003056] hover:bg-gray-200 transition-colors"
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
             </button>
             
             <div className="flex-1 mx-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {products.map((product) => (
+                {products.map((product, index) => (
                   <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="relative">
                       <img 
                         src={product.image} 
                         alt={product.name}
-                        className="w-full h-58 object-cover"
+                        className="w-full h-48 object-cover"
                       />
                       <div className="absolute top-4 right-4">
                         <button className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow">
@@ -171,7 +176,7 @@ const CoverHeroSection = () => {
             
             <button 
               onClick={nextSlide}
-              className=" absolute right-18 top-30 bg-[#003056] p-2 rounded-full  hover:bg-gray-200 transition-colors"
+              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
             >
               <ChevronRight className="w-6 h-6 text-gray-600" />
             </button>

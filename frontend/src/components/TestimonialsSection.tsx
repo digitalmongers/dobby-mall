@@ -1,3 +1,4 @@
+// components/TestimonialsSection.tsx
 import Image from 'next/image';
 
 const testimonials = [
@@ -5,7 +6,7 @@ const testimonials = [
     id: 1,
     name: 'Sam',
     title: 'CEO',
-    text: 'Lorem ipsum dolor sit amet consectetur. Sed in pellentesque vel enim in venenatis eleifend nisl. Tortor mi proin',
+    text: 'Lorem ipsum dolor sit amet consectetur. Sed in pellentesque vel enim in venenatis eleifend nisl...',
     image: '/images/test1.png',
   },
   {
@@ -43,7 +44,7 @@ const logos = [
 export default function TestimonialsSection() {
   return (
     <section className="px-4 py-14 bg-white text-center">
-      <h2 className="font-medium mb-10 font-[poppins] text-[40px] text-[#003056]">Testimonials</h2>
+      <h2 className="text-2xl font-semibold mb-10">Testimonials</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
         {testimonials.map((t) => (
           <div key={t.id} className="bg-white p-6 border rounded-lg shadow-sm">
@@ -62,10 +63,10 @@ export default function TestimonialsSection() {
       </div>
 
       <div className="mt-16">
-        <h3 className="text-xl font-medium mb-6 text-[40px] font-[poppins]">Trusted by</h3>
-        <div className="flex flex-wrap justify-center items-center gap-6" style={{height: "114px", width: "200px"}}>
+        <h3 className="text-xl font-semibold mb-6">Trusted by</h3>
+        <div className="flex flex-wrap justify-center items-center gap-6">
           {logos.map((logo, idx) => (
-            <div key={idx} className="h-29 w-50 relative">
+            <div key={idx} className="h-10 w-24 relative">
               <Image src={logo} alt={`Logo ${idx}`} layout="fill" objectFit="contain" />
             </div>
           ))}
