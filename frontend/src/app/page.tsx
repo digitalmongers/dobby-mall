@@ -1,13 +1,6 @@
-<<<<<<< HEAD
 import BlogSection from "@/components/BlogSection";
 import CoverHeroSection from "@/components/CoverHeroSection";
 import DobbyFooter from "@/components/DobbyFooter";
-=======
-// pages/index.js (or app/page.js for App Router)
-
-import BlogSection from "@/components/BlogSection";
-import CoverHeroSection from "@/components/CoverHeroSection";
->>>>>>> fadb714 (home-page)
 import FooterSection from "@/components/FooterSection";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -28,10 +21,7 @@ export default function Home() {
       <BlogSection/>
       <TestimonialsSection/>
       <FooterSection/>
-<<<<<<< HEAD
       <DobbyFooter/>
-=======
->>>>>>> fadb714 (home-page)
       {/* Page Content */}
       {/* <main className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">

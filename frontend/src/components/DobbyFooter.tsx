@@ -57,7 +57,7 @@ export default function DobbyFooter() {
           </div>
           
           {/* Icons and Newsletter Section */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-end gap-6 h-full">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
             {/* Left side - Brand Images */}
            <div className="flex  gap-4 ml-198 mt-18">
         <div className="w-16 h-12 rounded-lg flex items-center justify-center">
@@ -126,7 +126,7 @@ export default function DobbyFooter() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* About Column */}
             <div>
-              <h4 className="font-[500] text-[27px] leading-[100%] tracking-[0.02em] text-[#7B7A7A] mb-3">About Covers and All</h4>
+              <h4 className="font-semibold text-gray-800 mb-3">About Covers and All</h4>
               <p className="text-sm mb-4">
                 We provide high quality custom-made cover solutions with a wide range of UV-resistant fabrics for outdoor use. We offer water resistant covers in a variety of styles for year-round protection for virtually any item.
               </p>
@@ -134,10 +134,8 @@ export default function DobbyFooter() {
             
             {/* Company Information */}
             <div>
-             <h4 className="font-[500] text-[27px] leading-[100%] tracking-[0.02em] text-[#7B7A7A] mb-3 ">
-  Company Information
-</h4>
-              <ul className="text-sm space-y-1 w-[400px]">
+              <h4 className="font-semibold text-gray-800 mb-3">Company Information</h4>
+              <ul className="text-sm space-y-1">
                 <li>• Home</li>
                 <li>• About Us</li>
                 <li>• Services</li>
@@ -150,7 +148,7 @@ export default function DobbyFooter() {
             
             {/* Policies Column */}
             <div>
-              <ul className="text-sm space-y-1 -ml-30 mt-10">
+              <ul className="text-sm space-y-1">
                 <li>• Our Policy</li>
                 <li>• Commercial Terms</li>
                 <li>• Art Service</li>
@@ -159,7 +157,7 @@ export default function DobbyFooter() {
                 <li>• Call Now</li>
                 <li>• COVID-19 Measures</li>
               </ul>
-              <ul className="text-sm space-y-1 -mt-40  ml-40">
+              <ul className="text-sm space-y-1 mt-4">
                 <li>• Shipping Policy</li>
                 <li>• Privacy Policy</li>
                 <li>• Refund and Cancellation</li>
