@@ -41,7 +41,7 @@ const Header = () => {
     </div>
   </div>
 </div>
-<div className="w-[1440px] h-[50px] -mt-0.25 bg-[#302E2EDB] relative">
+<div className="w-[1520px] h-[50px] -mt-0.25 bg-[#302E2EDB] relative">
   <div className="absolute top-[15px] left-[26px] w-[113px] h-[19px] bg-[#2867D9] rounded-[4px] text-white text-[12px] flex items-center justify-center font-medium">
     Free Shipping
   </div>
