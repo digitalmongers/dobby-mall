@@ -116,7 +116,7 @@ const CoverHeroSection = () => {
           </div>
         </div>
       </div>
-       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+       <div className="w-full h-full mx-auto px-4 sm:px-6 lg:px-8 py-16 ">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Discover this season's trending must-haves now!
@@ -128,7 +128,7 @@ const CoverHeroSection = () => {
           <div className="flex items-center justify-between mb-8">
             <button 
               onClick={prevSlide}
-              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="absolute left-16 z-10 top-28 p-2 rounded-full bg-[#003056] hover:bg-gray-200 transition-colors"
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
             </button>
@@ -141,7 +141,7 @@ const CoverHeroSection = () => {
                       <img 
                         src={product.image} 
                         alt={product.name}
-                        className="w-full h-48 object-cover"
+                        className="w-full h-58 object-cover"
                       />
                       <div className="absolute top-4 right-4">
                         <button className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow">
@@ -176,7 +176,7 @@ const CoverHeroSection = () => {
             
             <button 
               onClick={nextSlide}
-              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className=" absolute right-18 top-30 bg-[#003056] p-2 rounded-full  hover:bg-gray-200 transition-colors"
             >
               <ChevronRight className="w-6 h-6 text-gray-600" />
             </button>

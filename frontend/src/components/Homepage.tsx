@@ -1,7 +1,9 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronLeft, ChevronRight, ShoppingCart, Plus } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Plus } from 'lucide-react'
+import ProductCategories from './ProductCategories'
+import ShoppingCart from './ShoppingCart'
 
 const Homepage = () => {
   // State for different swipers
@@ -222,97 +224,11 @@ const Homepage = () => {
 
 
       {/* Cart Products Section with Swiper 2 */}
-      <div className="py-8 px-4"  style={{
-    backgroundColor: '#F1F6FE',
-    width: '1440px',
-    height: '2^9px',
-    marginTop: '92px',
-  }}>
-        <h2 className="text-2xl font-bold text-center mb-6">Products added in your cart</h2>
-        <div className="relative max-w-4xl mx-auto">
-         <div className="flex items-center justify-center space-x-4">
-  {cartProducts.slice(0, 3).map((product, index, arr) => (
-    <div key={index} className="flex items-center space-x-4">
-      <div className="bg-gray-50 rounded-lg p-4 text-center shadow-md hover:shadow-lg transition">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-32 mx-auto object-contain mb-2"
-        />
-      </div>
+    <ShoppingCart/>
 
-      {/* Only show the Plus icon if it's not the last item */}
-      {index < arr.length - 1 && (
-        <Plus className="w-6 h-6 text-gray-400" />
-      )}
-    </div>
-  ))}
-
-  {/* Equal sign and final result box */}
-  <span className="text-2xl font-bold">=</span>
-  <div className=" p-4 w-48 text-center ">
-   
-     <img
-    src="/images/GroupD.png"
-    alt="Summary"
-    className="mx-auto h-24 object-contain"
-  />
-  </div>
-</div>
-
-          
-          {/* Cart Navigation */}
-          <button 
-            onClick={() => prevSlide('cart')}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-2 rounded-full"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-          <button 
-            onClick={() => nextSlide('cart')}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-200 hover:bg-gray-300 p-2 rounded-full"
-          >
-            <ChevronRight className="w-5 h-5" />
-          </button>
-        </div>
-      </div>
 
       {/* Product Categories Section with Swiper 3 */}
-      <div className="py-12 px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Explore Our Best-Selling Product Categories</h2>
-        <div className="relative max-w-6xl mx-auto">
-          <div className="grid grid-cols-4 gap-6">
-            {categories.slice(categorySlide * 4, (categorySlide * 4) + 4).map((category, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-                <div className="h-48 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center">
-                  <div className="text-6xl">{category.image}</div>
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-lg mb-2">{category.name}</h3>
-                  <p className="text-gray-600 text-sm">{category.description}</p>
-                  <button className="mt-3 w-full bg-blue-500 hover:bg-blue-600 text-white py-2 rounded-lg transition-colors">
-                    View Products
-                  </button>
-                </div>
-              </div>
-            ))}
-          </div>
-          
-          {/* Categories Navigation */}
-          <button 
-            onClick={() => prevSlide('category')}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-3 rounded-full"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
-          <button 
-            onClick={() => nextSlide('category')}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white shadow-lg hover:shadow-xl p-3 rounded-full"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
-        </div>
-      </div>
+    <ProductCategories/>
 
       {/* Featured Products Section with Swiper 4 */}
       

@@ -18,7 +18,7 @@ export default function EventsAndFooter() {
 
         {/* Center Text & Button */}
         <div className="absolute inset-0 z-20 flex items-center justify-center ">
-          <div className="bg-[#D9D9D9] p-6 rounded shadow text-center max-w-md">
+          <div className="bg-transparent p-6  text-center max-w-md">
             <h2 className="text-xl font-semibold mb-2">Upcoming Events</h2>
             <p className="text-sm text-gray-700 mb-4">
               Lorem ipsum dolor sit amet consectetur. Sed in pellentesque vel enim in venenatis eleifend nisl. Tortor mi proin
