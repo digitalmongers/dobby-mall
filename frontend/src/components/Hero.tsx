@@ -85,8 +85,10 @@ const Hero = () => {
             
             <div className="relative z-10 flex flex-col justify-center items-center h-full p-8 text-center text-white">
               {/* Shopkeeper Image */}
+              
               <div className="relative mb-8">
-                <div className="absolute w-[760px] h-[701px] top-[-262px] left-[-379px]  overflow-hidden shadow-2xl">
+                
+                <div className="absolute w-[762px] h-[791px] top-[-50px] left-[-380px] overflow-hidden shadow-2xl">
                   <img 
                     src="/images/shop.png" 
                     alt="Shopkeeper in store" 
@@ -94,26 +96,20 @@ const Hero = () => {
                   />
                 </div>
                 {/* Play Button */}
-               <div className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-4">
-      <button className="bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-6 hover:bg-opacity-30 transition-all transform hover:scale-105">
-        <img
-          src="/images/play.png"
-          alt="Play"
-          className="w-12 h-12 object-contain"
-        />
-      </button>
-      <button className="bg-blue-500 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-600 transition">
-        Join as Shopkeeper
-      </button>
+                
+               <div className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-4 ">
+
+   
     </div>
               </div>
               
               {/* Shopkeeper CTA */}
-              <div className="space-y-4">
-               
-                <button className="bg-white text-orange-600 px-8 py-3 rounded-full font-semibold hover:bg-orange-50 transition-colors transform hover:scale-105">
-                  Join as Shopkeeper
-                </button>
+              <div className="space-y-4 z-10">
+                  <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-23 " />
+                <button className="mt-50 w-[300px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
+      Join as a Shopkeeper
+    </button>
+        
               </div>
             </div>
           </div>
@@ -130,7 +126,7 @@ const Hero = () => {
             <div className="relative z-10 flex flex-col justify-center items-center h-full p-8 text-center text-white">
               {/* Student Image */}
               <div className="relative mb-8">
-                <div className="absolute w-[760px] h-[701px] top-[-262px] left-[-380px]  overflow-hidden shadow-2xl">
+                <div className="absolute w-[762px] h-[791px] top-[-50px] left-[-380px] overflow-hidden shadow-2xl">
                   <img 
                     src="/images/student.png" 
                     alt="Student studying" 
@@ -139,23 +135,16 @@ const Hero = () => {
                 </div>
                 {/* Play Button */}
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <button className="bg-white bg-opacity-20 backdrop-blur-sm rounded-full p-6 hover:bg-opacity-30 transition-all transform hover:scale-105">
-                    <img 
-                      src="/images/play.png" 
-                      alt="Student studying" 
-                      className="w-12 h-12 object-cover"
-                    />
-                  </button>
+                 
                 </div>
               </div>
               
               {/* Student CTA */}
-              <div className="space-y-4">
-                <h2 className="text-2xl font-bold">Join as Student</h2>
-                <p className="text-lg opacity-90">Discover and shop amazing products</p>
-                <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-semibold hover:bg-blue-50 transition-colors transform hover:scale-105">
-                  Join as Student
-                </button>
+              <div className="space-y-4 z-10">
+                <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-36 " />
+                 <button className="mt-50 w-[300px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
+      Join as a Student
+    </button>
               </div>
             </div>
           </div>
@@ -163,7 +152,7 @@ const Hero = () => {
       </div>
 
       {/* Trending Products Section */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className=" w-full h-full mx-auto px-4 sm:px-6 lg:px-8 py-16 ">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             Discover this season's trending must-haves now!
@@ -172,15 +161,15 @@ const Hero = () => {
 
         {/* Product Carousel */}
         <div className="relative">
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-8  rounded-lg p-4 px-6 w-360 h-100">
             <button 
               onClick={prevSlide}
-              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="absolute left-14 z-10 top-35  p-2 rounded-full bg-[#003056] hover:bg-gray-200 transition-colors"
             >
               <ChevronLeft className="w-6 h-6 text-gray-600" />
             </button>
             
-            <div className="flex-1 mx-8">
+            <div className="flex-1 mx-2 my-6   ">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {products.map((product, index) => (
                   <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
@@ -188,7 +177,7 @@ const Hero = () => {
                       <img 
                         src={product.image} 
                         alt={product.name}
-                        className="w-full h-48 object-cover"
+                        className="w-full h-58 object-cover"
                       />
                       <div className="absolute top-4 right-4">
                         <button className="bg-white rounded-full p-2 shadow-md hover:shadow-lg transition-shadow">
@@ -223,17 +212,17 @@ const Hero = () => {
             
             <button 
               onClick={nextSlide}
-              className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors"
+              className="absolute right-18 top-40 transform -translate-y-1/2 p-2 rounded-full bg-[#003056] hover:bg-gray-200 transition-colors"
             >
-              <ChevronRight className="w-6 h-6 text-gray-600" />
+              <ChevronRight className="  w-6 h-6 text-gray-600" />
             </button>
           </div>
         </div>
       </div>
 
       {/* How it Works Section */}
-     {/* How it Works Section (Updated) */}
-<div className="bg-gray-50 py-16">
+    
+<div className="bg-gray-50 ">
   <div className="text-center mb-12">
     <h2 className="text-3xl font-bold text-gray-900">How it works</h2>
   </div>

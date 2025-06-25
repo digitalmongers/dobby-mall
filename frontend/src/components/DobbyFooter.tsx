@@ -126,7 +126,7 @@ export default function DobbyFooter() {
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
             {/* About Column */}
             <div>
-              <h4 className="font-semibold text-gray-800 mb-3">About Covers and All</h4>
+              <h4 className="font-[500] text-[27px] leading-[100%] tracking-[0.02em] text-[#7B7A7A] mb-3">About Covers and All</h4>
               <p className="text-sm mb-4">
                 We provide high quality custom-made cover solutions with a wide range of UV-resistant fabrics for outdoor use. We offer water resistant covers in a variety of styles for year-round protection for virtually any item.
               </p>
@@ -134,8 +134,10 @@ export default function DobbyFooter() {
             
             {/* Company Information */}
             <div>
-              <h4 className="font-semibold text-gray-800 mb-3">Company Information</h4>
-              <ul className="text-sm space-y-1">
+             <h4 className="font-[500] text-[27px] leading-[100%] tracking-[0.02em] text-[#7B7A7A] mb-3 ">
+  Company Information
+</h4>
+              <ul className="text-sm space-y-1 w-[400px]">
                 <li>• Home</li>
                 <li>• About Us</li>
                 <li>• Services</li>
@@ -148,7 +150,7 @@ export default function DobbyFooter() {
             
             {/* Policies Column */}
             <div>
-              <ul className="text-sm space-y-1">
+              <ul className="text-sm space-y-1 -ml-30 mt-10">
                 <li>• Our Policy</li>
                 <li>• Commercial Terms</li>
                 <li>• Art Service</li>
@@ -157,7 +159,7 @@ export default function DobbyFooter() {
                 <li>• Call Now</li>
                 <li>• COVID-19 Measures</li>
               </ul>
-              <ul className="text-sm space-y-1 mt-4">
+              <ul className="text-sm space-y-1 -mt-40  ml-40">
                 <li>• Shipping Policy</li>
                 <li>• Privacy Policy</li>
                 <li>• Refund and Cancellation</li>
