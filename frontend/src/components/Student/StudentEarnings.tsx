@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from 'react';
 import { IndianRupee, Check, Clock, ChevronLeft, ChevronRight } from 'lucide-react';
 

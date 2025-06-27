@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Play, Edit3, Users, ShoppingCart, Search, Heart, User, MapPin, ChevronDown, Menu } from 'lucide-react';
+import StudentRegistration from './Student/StudentRegistration';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showStudentModal, setShowStudentModal] = useState(false);
 
   const products = [
     {
@@ -69,7 +71,12 @@ const Hero = () => {
 
   return (
     <div className="min-h-screen bg-white">
-    
+      {/* Modal */}
+      {showStudentModal && (
+        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center p-4 z-50">
+          <StudentRegistration onClose={() => setShowStudentModal(false)} />
+        </div>
+      )}
      
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -142,7 +149,7 @@ const Hero = () => {
               {/* Student CTA */}
               <div className="space-y-4 z-10">
                 <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-36 " />
-                 <button className="mt-50 w-[300px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
+                 <button  onClick={() => setShowStudentModal(true)} className="mt-50 w-[300px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
       Join as a Student
     </button>
               </div>

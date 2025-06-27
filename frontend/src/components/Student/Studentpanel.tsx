@@ -1,13 +1,12 @@
 'use client';
-import React from 'react';
+import React, { useState } from 'react';
 import StudentSidebar from './StudentSidebar';
 import StudentDashboard from './StudentDashboard';
 import Studentshop from './Studentshop';
 import StudentEarnings from './StudentEarnings';
 import StudentPayouts from './StudentPayouts';
-
-import SchoolRegistrationForm from '../SchoolRegistrationForm';
-
+import StudentRegistration from './StudentRegistration';
+import StudentRegistrationStep2 from './StudentRegistrationStep2';
 
 const StudentPanel = () => {
   return (
@@ -17,9 +16,8 @@ const StudentPanel = () => {
       <Studentshop/>
       <StudentEarnings/>
       <StudentPayouts/>
-      {/* <StudentSignIn/> */}
-      <SchoolRegistrationForm/>
-    
+      <StudentRegistration onClose={() => {}}/>
+      <StudentRegistrationStep2/>
     </div>
   );
 };

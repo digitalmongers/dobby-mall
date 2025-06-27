@@ -1,7 +1,5 @@
 'use client';
 import React, { useState } from 'react';
-import Studentshop from './Studentshop';
-
 import { 
   Search, 
   LayoutDashboard, 
@@ -20,10 +18,10 @@ const StudentSidebar = () => {
 
   const menuItems = [
     { name: 'Dashboard', icon: LayoutDashboard, color: 'text-blue-600' },
-    { name: 'Shops', icon: Store, color: 'text-gray-700'},
+    { name: 'Shops', icon: Store, color: 'text-gray-700' },
     { name: 'Earnings', icon: DollarSign, color: 'text-gray-700' },
     { name: 'Affiliate Links', icon: Link, color: 'text-gray-700' },
-    { name: 'Training', icon: GraduationCap, color: 'text-gray-700'},
+    { name: 'Training', icon: GraduationCap, color: 'text-gray-700' },
     { name: 'Payouts', icon: CreditCard, color: 'text-gray-700' },
     { name: 'Settings', icon: Settings, color: 'text-gray-700' },
     { name: 'Help & Support', icon: HelpCircle, color: 'text-gray-700' },

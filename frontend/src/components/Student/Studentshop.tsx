@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 "use client";
 import React, { useState } from 'react';
 import StudentSidebar from '@/components/Student/StudentSidebar'
+=======
+import React, { useState } from 'react';
+>>>>>>> 19763da (Add Student Panel)
 import { Plus, Check, Clock, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Studentshop () {
@@ -37,7 +41,11 @@ export default function Studentshop () {
     }
   ];
 
+<<<<<<< HEAD
   const getStatusColor = (status: string) => {
+=======
+  const getStatusColor = (status) => {
+>>>>>>> 19763da (Add Student Panel)
     switch(status) {
       case 'Active': return 'text-green-500';
       case 'Pending': return 'text-yellow-500';
@@ -46,7 +54,11 @@ export default function Studentshop () {
     }
   };
 
+<<<<<<< HEAD
   const getStatusBg = (status: string) => {
+=======
+  const getStatusBg = (status) => {
+>>>>>>> 19763da (Add Student Panel)
     switch(status) {
       case 'Active': return 'bg-green-50';
       case 'Pending': return 'bg-yellow-50';
@@ -56,10 +68,15 @@ export default function Studentshop () {
   };
 
   return (
+<<<<<<< HEAD
     // <div>
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
         {/*Right Side */}
+=======
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-7xl mx-auto">
+>>>>>>> 19763da (Add Student Panel)
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-semibold text-gray-900">Shops Management</h1>

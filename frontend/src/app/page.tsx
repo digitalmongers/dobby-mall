@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Homepage from "@/components/Homepage";
 import RealStories from "@/components/RealStories";
+import StudentPanel from "@/components/Student/Studentpanel";
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 
@@ -22,6 +23,7 @@ export default function Home() {
       <TestimonialsSection/>
       <FooterSection/>
       <DobbyFooter/>
+       <StudentPanel/>
       {/* Page Content */}
       {/* <main className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">
