@@ -5,8 +5,7 @@ import StudentDashboard from './StudentDashboard';
 import Studentshop from './Studentshop';
 import StudentEarnings from './StudentEarnings';
 import StudentPayouts from './StudentPayouts';
-import StudentRegistration from './StudentRegistration';
-import StudentRegistrationStep2 from './StudentRegistrationStep2';
+
 
 const StudentPanel = () => {
   return (
@@ -16,8 +15,8 @@ const StudentPanel = () => {
       <Studentshop/>
       <StudentEarnings/>
       <StudentPayouts/>
-      <StudentRegistration onClose={() => {}}/>
-      <StudentRegistrationStep2/>
+      
+    
     </div>
   );
 };

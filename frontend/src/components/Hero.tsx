@@ -72,11 +72,11 @@ const Hero = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Modal */}
-      {showStudentModal && (
-        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 flex items-center justify-center p-4 z-50">
-          <StudentRegistration onClose={() => setShowStudentModal(false)} />
-        </div>
-      )}
+    {showStudentModal && (
+  <div className="fixed inset-0 z-50 backdrop-blur-[2px] bg-transparent flex items-center justify-center p-4">
+    <StudentRegistration onClose={() => setShowStudentModal(false)} />
+  </div>
+)}
      
       {/* Hero Section */}
       <div className="relative overflow-hidden">
