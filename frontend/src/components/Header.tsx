@@ -37,7 +37,7 @@ const handleStudentSignIn = () => {
        {isStudentSignInOpen && (
       <div className="fixed inset-0 z-50 backdrop-blur-[2px]w-full bg-transparent flex items-center justify-center p-4">
         <div className=" rounded-lg shadow-xl w-full max-w-5xl">
-          <StudentSignIn />
+          <StudentSignIn onClose={() => setIsStudentSignInOpen(false)}/>
          
         </div>
       </div>

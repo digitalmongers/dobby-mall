@@ -1,12 +1,19 @@
+<<<<<<< HEAD
 // ✅ Load .env variables at top
 require('dotenv').config();
 
+=======
+>>>>>>> 4e7c9df (Add-Role-based-authentication)
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
   port: parseInt(process.env.EMAIL_PORT),
+<<<<<<< HEAD
   secure: false, // true for port 465, false for 587
+=======
+  secure: false, // use TLS
+>>>>>>> 4e7c9df (Add-Role-based-authentication)
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS

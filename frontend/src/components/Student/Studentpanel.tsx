@@ -5,7 +5,7 @@ import StudentDashboard from './StudentDashboard';
 import Studentshop from './Studentshop';
 import StudentEarnings from './StudentEarnings';
 import StudentPayouts from './StudentPayouts';
-import StudentSignIn from './StudentSignIn';
+
 import SchoolRegistrationForm from '../SchoolRegistrationForm';
 
 
@@ -17,7 +17,7 @@ const StudentPanel = () => {
       <Studentshop/>
       <StudentEarnings/>
       <StudentPayouts/>
-      <StudentSignIn/>
+      {/* <StudentSignIn/> */}
       <SchoolRegistrationForm/>
     
     </div>
