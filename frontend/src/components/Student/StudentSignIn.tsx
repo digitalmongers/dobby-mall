@@ -1,6 +1,5 @@
-
 'use client';
-
+import axios from 'axios'; 
 import { useState } from 'react';
 import { ArrowLeft, X } from 'lucide-react';
 import StudentVerificationCode from './StudentVerificationCode'; // Update the path if needed
@@ -9,13 +8,23 @@ export default function StudentSignIn({ onClose }: { onClose: () => void }) {
   const [email, setEmail] = useState('');
   const [showVerification, setShowVerification] = useState(false);
 
-  const handleContinue = () => {
-    if (email.trim() !== '') {
+ const handleContinue = async () => {
+    if (email.trim() === '') {
+      alert('Please enter your email');
+      return;
+    }
+
+    try {
+      const res = await axios.post('http://localhost:5000/api/auth/send-otp', { email });
+      console.log(res.data.message); // optional log
       setShowVerification(true);
-    } else {
-      alert('Please enter your email or phone');
+    } catch (error: any) {
+      console.error(error);
+      const msg = error?.response?.data?.message || 'Failed to send OTP';
+      alert(msg);
     }
   };
+
 
   if (showVerification) {
     return <StudentVerificationCode email={email} onClose={onClose}/>;

@@ -3,7 +3,8 @@
 import { useState, useRef, useEffect, ChangeEvent, KeyboardEvent } from 'react';
 import { ArrowLeft, X, Check } from 'lucide-react';
 import SuccessScreen from './SuccessScreen';
-
+import { useRouter } from 'next/navigation';
+import axios from 'axios';
 export default function StudentVerificationCode({
   email,
   onClose,
@@ -22,6 +23,36 @@ export default function StudentVerificationCode({
       return () => clearTimeout(timer);
     }
   }, [countdown]);
+const router = useRouter();
+
+const handleContinue = async () => {
+  const fullOtp = codes.join('');
+  if (fullOtp.length !== 6) {
+    alert('Please enter all 6 digits of the code.');
+    return;
+  }
+
+  try {
+    const res = await axios.post('http://localhost:5000/api/auth/verify-otp', {
+      email,
+      otp: fullOtp,
+    });
+
+    const { token } = res.data;
+    localStorage.setItem('token', token);
+
+    // 1. Show success screen
+    setShowSuccess(true);
+
+    // 2. Redirect after 2 seconds
+    setTimeout(() => {
+      router.push('/student');
+    }, 2000);
+  } catch (error) {
+    console.error(error);
+    alert('Invalid or expired OTP. Please try again.');
+  }
+};
 
   const handleInputChange = (index: number, value: string) => {
     if (value.length <= 1) {
@@ -40,14 +71,7 @@ export default function StudentVerificationCode({
     }
   };
 
-  const handleContinue = () => {
-    if (codes.every((c) => c.trim().length === 1)) {
-      // All 6 digits are entered
-      setShowSuccess(true);
-    } else {
-      alert('Please enter all 6 digits of the code.');
-    }
-  };
+
 
   const formatTime = (seconds: number): string => {
     const mins = Math.floor(seconds / 60);

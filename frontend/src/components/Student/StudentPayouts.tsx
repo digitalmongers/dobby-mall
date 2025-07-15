@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from 'react';
 import { Download, Wallet, Clock, IndianRupee, ChevronLeft, ChevronRight, FileText } from 'lucide-react';
 
