@@ -2,12 +2,13 @@
 import React, { useState } from 'react';
 import { ChevronLeft, ChevronRight, Play, Edit3, Users, ShoppingCart, Search, Heart, User, MapPin, ChevronDown, Menu } from 'lucide-react';
 import StudentRegistration from './Student/StudentRegistration';
+import ShopkeeperRegistration from './Shopkeeper/ShopkeeperRegistration';
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showStudentModal, setShowStudentModal] = useState(false);
-
+const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
   const products = [
     {
       id: 1,
@@ -77,7 +78,14 @@ const Hero = () => {
     <StudentRegistration onClose={() => setShowStudentModal(false)} />
   </div>
 )}
-     
+
+{isShopkeeperModalOpen && (
+  <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black/30 flex items-center justify-center p-4">
+    <ShopkeeperRegistration onClose={() => setIsShopkeeperModalOpen(false)} />
+  </div>
+)}
+  
+
       {/* Hero Section */}
       <div className="relative overflow-hidden">
         <div className="flex min-h-screen">
@@ -113,7 +121,7 @@ const Hero = () => {
               {/* Shopkeeper CTA */}
               <div className="space-y-4 z-10">
                   <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-23 " />
-                <button className="mt-50 w-[300px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
+                <button onClick={() => setIsShopkeeperModalOpen(true)}  className="mt-50 w-[300px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
       Join as a Shopkeeper
     </button>
         

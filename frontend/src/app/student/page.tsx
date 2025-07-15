@@ -1,6 +1,8 @@
 import StudentDashboard from '@/components/Student/StudentDashboard';
+
 import Studentshop from '@/components/Student/Studentshop';
 import StudentEarnings from '@/components/Student/StudentEarnings'
+
 
 const StudentPage: React.FC = () => {
 return (
@@ -9,6 +11,7 @@ return (
       <div><StudentDashboard/></div>
       <div><Studentshop/></div>
       <div><StudentEarnings/></div>
+
     
       
     
