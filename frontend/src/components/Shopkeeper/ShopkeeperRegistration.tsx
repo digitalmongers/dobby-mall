@@ -19,8 +19,9 @@ export default function ShopkeeperRegistration({ onClose }: { onClose: () => voi
     console.log('Login with:', provider);
   };
 
-  
-
+  const handleLogin = () => {
+    window.open("http://localhost:5000/api/auth/google", "_self");
+  };
   return (
     <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black/30 flex items-center justify-center p-4">
 
@@ -86,7 +87,7 @@ export default function ShopkeeperRegistration({ onClose }: { onClose: () => voi
           {/* Social Login Buttons */}
           <div className="space-y-3 mb-6">
             <button
-              onClick={() => handleSocialLogin('Google')}
+             onClick={handleLogin}
               className="w-full flex items-center justify-center gap-3 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
             >
               <Chrome className="w-5 h-5 text-red-500" />

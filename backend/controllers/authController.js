@@ -110,3 +110,19 @@ exports.verifyOTP = async (req, res) => {
     return res.status(500).json({ message: 'OTP verification failed' });
   }
 };
+
+// 🔹 Google OAuth Callback
+exports.googleCallback = (req, res) => {
+  const user = req.user;
+  const token = jwt.sign(user, process.env.JWT_SECRET, { expiresIn: "1h" });
+
+  res.redirect(`${process.env.CLIENT_URL}/auth-success?token=${token}`);
+};
+
+exports.googleLogin = (req, res) => {
+  if (req.user) {
+    res.status(200).json({ user: req.user });
+  } else {
+    res.status(401).json({ message: "Unauthorized" });
+  }
+};

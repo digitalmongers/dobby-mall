@@ -6,13 +6,18 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Homepage from "@/components/Homepage";
 import RealStories from "@/components/RealStories";
+import StudentPanel from "@/components/Student/StudentPanel";
+
+import AnalyticsReport from "@/components/Shopkeeper/AnalyticsReport";
+import Shopdashboard from "@/components/Shopkeeper/Shopdashboard";
+
 import TestimonialsSection from "@/components/TestimonialsSection";
 
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-50">
-     
+  
       <Header />
       <Homepage />
       <Hero />
@@ -22,6 +27,12 @@ export default function Home() {
       <TestimonialsSection/>
       <FooterSection/>
       <DobbyFooter/>
+
+
+       <StudentPanel/>
+       <Shopdashboard/>
+       <AnalyticsReport/>
+
       {/* Page Content */}
       {/* <main className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold text-gray-900 mb-6">
