@@ -1,302 +1,137 @@
-// 'use client';
-// import React, { useState } from 'react';
-// import { ArrowLeft, X } from 'lucide-react';
-// import StudentRegistrationStep2 from './StudentRegistrationStep2';
+"use client"
 
-// export default function StudentRegistration({ onClose }: { onClose: () => void }) {
-//   const [step, setStep] = useState(1);
+import { useState } from "react"
+import { X, Chrome, Facebook, ShoppingCart, Apple } from 'lucide-react';  
 
-//   const [formData, setFormData] = useState({
-//     fullName: '',
-//     email: '',
-//     mobile: '',
-//     school: '',
-//     grade: ''
-//   });
+interface StudentRegistrationModalProps {
+  isOpen: boolean
+  onClose: () => void
+}
 
-//   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value
-//     });
-//   };
+export default function StudentRegistrationModal({ onClose = () => {} }: StudentRegistrationModalProps) {
+  const [email, setEmail] = useState("");
 
-//   const allFieldsFilled = Object.values(formData).every(field => field.trim() !== '');
+  const handleContinue = () => {
+    // Handle form submission
+    console.log("Continue with:", email)
+  }
 
-//   return (
-//     <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
-//       {step === 1 ? (
-//         <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl overflow-hidden flex">
-//           {/* Left side - Image */}
-//           <div className="flex-1 relative">
-//             <img
-//               src="/images/student.png"
-//               alt="Students in classroom"
-//               className="w-full h-full object-cover"
-//             />
-//           </div>
-
-//           {/* Right side - Form */}
-//           <div className="flex-1 p-8 relative">
-//             {/* Header */}
-//             <div className="flex items-center justify-between mb-8">
-//               <button className="flex items-center text-gray-600 hover:text-gray-800">
-//                 <ArrowLeft className="w-5 h-5 mr-2" />
-//                 <span className="text-sm">Back</span>
-//               </button>
-//               <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
-//                 <X className="w-6 h-6" />
-//               </button>
-//             </div>
-
-//             {/* Title */}
-//             <div className="mb-8">
-//               <h1 className="text-2xl font-semibold text-gray-900 mb-2">Student Registration</h1>
-//               <p className="text-gray-600 text-sm">Complete your profile to get your affiliate link.</p>
-//             </div>
-
-//             {/* Form */}
-//             <div className="space-y-6">
-//               {/* Full Name */}
-//               <input
-//                 type="text"
-//                 name="fullName"
-//                 placeholder="Full Name *"
-//                 value={formData.fullName}
-//                 onChange={handleInputChange}
-//                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-//               />
-
-//               {/* Email */}
-//               <input
-//                 type="email"
-//                 name="email"
-//                 placeholder="Email Address *"
-//                 value={formData.email}
-//                 onChange={handleInputChange}
-//                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-//               />
-
-//               {/* Mobile Number */}
-//               <div className="flex">
-//                 <div className="flex items-center px-3 py-3 border border-r-0 border-gray-200 rounded-l-lg bg-gray-50">
-//                   <div className="w-6 h-4 mr-2 relative">
-//                     <div className="absolute top-0 w-full h-1/3 bg-orange-500" />
-//                     <div className="absolute top-1/3 w-full h-1/3 bg-white" />
-//                     <div className="absolute top-2/3 w-full h-1/3 bg-green-600" />
-//                   </div>
-//                   <span className="text-sm text-gray-600">+91</span>
-//                 </div>
-//                 <input
-//                   type="tel"
-//                   name="mobile"
-//                   placeholder="Mobile Number *"
-//                   value={formData.mobile}
-//                   onChange={handleInputChange}
-//                   className="flex-1 px-4 py-3 border border-gray-200 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-//                 />
-//               </div>
-
-//               {/* School Name */}
-//               <input
-//                 type="text"
-//                 name="school"
-//                 placeholder="School Name *"
-//                 value={formData.school}
-//                 onChange={handleInputChange}
-//                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-//               />
-
-//               {/* Grade */}
-//               <select
-//                 name="grade"
-//                 value={formData.grade}
-//                 onChange={handleInputChange}
-//                 className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400"
-//               >
-//                 <option value="" disabled>
-//                   Class / Grade (6 - 12) *
-//                 </option>
-//                 {[6, 7, 8, 9, 10, 11, 12].map((cls) => (
-//                   <option key={cls} value={cls}>
-//                     Class {cls}
-//                   </option>
-//                 ))}
-//               </select>
-
-//               {/* Next Button */}
-//               <div className="pt-4">
-//                 <button
-//                   type="button"
-//                   className={`w-full py-3 px-4 rounded-lg font-medium transition-colors ${
-//                     allFieldsFilled
-//                       ? 'bg-blue-600 text-white hover:bg-blue-700'
-//                       : 'bg-blue-200 text-gray-500 cursor-not-allowed'
-//                   }`}
-//                   onClick={() => {
-//                     if (allFieldsFilled) {
-//                       setStep(2);
-//                     } else {
-//                       alert('Please fill all fields');
-//                     }
-//                   }}
-//                   disabled={!allFieldsFilled}
-//                 >
-//                   Next
-//                 </button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       ) : (
-//         <StudentRegistrationStep2 onBack={() => setStep(1)} onClose={onClose} />
-//       )}
-//     </div>
-//   );
-// }
-
-
-'use client';
-import React, { useState } from 'react';
-import { ArrowLeft, X } from 'lucide-react';
-import StudentRegistrationStep2 from './StudentRegistrationStep2';
-
-export default function StudentRegistration({ onClose }: { onClose: () => void }) {
-  const [step, setStep] = useState(1);
-
-  const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    mobile: '',
-    school: '',
-    grade: ''
-  });
-
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const allFieldsFilled = Object.values(formData).every(field => field.trim() !== '');
+  const handleSocialLogin = (provider: string) => {
+    console.log("Login with:", provider)
+  }
 
   return (
-    <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-50">
-      {step === 1 ? (
-        <div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl overflow-hidden flex">
-          {/* Left side - Image */}
-          <div className="flex-1 relative">
-            <img
-              src="/images/student.png"
-              alt="Students in classroom"
-              className="w-full h-full object-cover"
-            />
+     <div className="fixed inset-0 z-50 backdrop-blur-sm bg-black/30 flex items-center justify-center p-4">
+
+
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col md:flex-row">
+        
+        {/* Left Side - Image */}
+        <div className="md:w-1/2 relative">
+          <img 
+            src="/images/student.png"
+            alt="Student in classroom"
+            className="h-64 md:h-full w-full object-cover"
+          />
+        </div>
+
+        {/* Right Side - Form */}
+        <div className="md:w-1/2 p-6 md:p-8 flex flex-col">
+          {/* Close Button */}
+          <button 
+            onClick={onClose}
+            className="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            <X className="h-6 w-6" />
+          </button>
+
+          {/* Header */}
+          <div className="mb-6 mt-4">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Register as Student</h2>
+            <p className="text-gray-600 text-sm">Track orders, save favourites, and unlock deals.</p>
           </div>
 
-          {/* Right side - Form */}
-          <div className="flex-1 p-8 relative">
-            {/* Header */}
-            <div className="flex items-center justify-between mb-8">
-              <button className="flex items-center text-gray-600 hover:text-gray-800">
-                <ArrowLeft className="w-5 h-5 mr-2" />
-                <span className="text-sm">Back</span>
-              </button>
-              <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
-                <X className="w-6 h-6" />
-              </button>
-            </div>
-
-            {/* Title */}
-            <div className="mb-8">
-              <h1 className="text-2xl font-semibold text-gray-900 mb-2">Student Registration</h1>
-              <p className="text-gray-600 text-sm">Complete your profile to get your affiliate link.</p>
-            </div>
-
-            {/* Form */}
-            <div className="space-y-6">
-              <input
-                type="text"
-                name="fullName"
-                placeholder="Full Name *"
-                value={formData.fullName}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-              />
-
+          {/* Email Input */}
+          <div className="mb-6">
+            <div className="relative">
               <input
                 type="email"
-                name="email"
-                placeholder="Email Address *"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
+                placeholder="Enter Email or Phone"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-colors"
               />
-
-              <div className="flex">
-                <div className="flex items-center px-3 py-3 border border-r-0 border-gray-200 rounded-l-lg bg-gray-50">
-                  <div className="w-6 h-4 mr-2 relative">
-                    <div className="absolute top-0 w-full h-1/3 bg-orange-500" />
-                    <div className="absolute top-1/3 w-full h-1/3 bg-white" />
-                    <div className="absolute top-2/3 w-full h-1/3 bg-green-600" />
-                  </div>
-                  <span className="text-sm text-gray-600">+91</span>
-                </div>
-                <input
-                  type="tel"
-                  name="mobile"
-                  placeholder="Mobile Number *"
-                  value={formData.mobile}
-                  onChange={handleInputChange}
-                  className="flex-1 px-4 py-3 border border-gray-200 rounded-r-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-                />
-              </div>
-
-              <input
-                type="text"
-                name="school"
-                placeholder="School Name *"
-                value={formData.school}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400"
-              />
-
-              <select
-                name="grade"
-                value={formData.grade}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-400"
-              >
-                <option value="" disabled>
-                  Class / Grade (6 - 12) *
-                </option>
-                {[6, 7, 8, 9, 10, 11, 12].map((cls) => (
-                  <option key={cls} value={cls}>
-                    Class {cls}
-                  </option>
-                ))}
-              </select>
-
-              <div className="pt-4">
-                <button
-                  type="button"
-                  className={`w-full py-3 px-4 rounded-lg font-medium transition-colors ${
-                    allFieldsFilled
-                      ? 'bg-blue-600 text-white hover:bg-blue-700'
-                      : 'bg-blue-200 text-gray-500 cursor-not-allowed'
-                  }`}
-                  onClick={() => setStep(2)}
-                  disabled={!allFieldsFilled}
-                >
-                  Next
-                </button>
-              </div>
             </div>
           </div>
+
+          {/* Continue Button */}
+          <button
+            onClick={handleContinue}
+            className="w-full bg-blue-400 text-white py-3 rounded-lg font-medium hover:bg-blue-500 transition-colors mb-6"
+          >
+            Continue
+          </button>
+
+          {/* Divider */}
+          <div className="relative mb-6">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-gray-300"></div>
+            </div>
+            <div className="relative flex justify-center text-sm">
+              <span className="px-4 bg-white text-gray-500">Or Continue With</span>
+            </div>
+          </div>
+
+          {/* Social Login Buttons */}
+          <div className="space-y-3 mb-6">
+            <button
+              onClick={() => handleSocialLogin('Google')}
+              className="w-full flex items-center justify-center gap-3 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <Chrome className="w-5 h-5 text-red-500" />
+              <span className="text-gray-700 font-medium">Google</span>
+            </button>
+
+            <button
+              onClick={() => handleSocialLogin('Facebook')}
+              className="w-full flex items-center justify-center gap-3 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <Facebook className="w-5 h-5 text-blue-600" />
+              <span className="text-gray-700 font-medium">Facebook</span>
+            </button>
+          </div>
+
+          {/* Second Row Social Buttons */}
+          <div className="grid grid-cols-2 gap-3 mb-6">
+            <button
+              onClick={() => handleSocialLogin('Amazon')}
+              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <ShoppingCart className="w-5 h-5 text-orange-500" />
+              <span className="text-gray-700 font-medium">Amazon</span>
+            </button>
+
+            <button
+              onClick={() => handleSocialLogin('Apple')}
+              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+            >
+              <Apple className="w-5 h-5 text-black" />
+              <span className="text-gray-700 font-medium">Apple</span>
+            </button>
+          </div>
+
+          {/* Business Link */}
+          <div className="text-center text-sm">
+            <span className="text-gray-600">Shopping for a business? </span>
+            <a href="#" className="text-blue-600 hover:text-blue-700 font-medium">
+              Join Cover<span className="bg-blue-600 text-white px-1 rounded text-xs">All</span>
+            </a>
+            <span className="text-gray-600 ml-1">Business</span>
+            <br />
+            <span className="text-gray-500 text-xs">for bulk discounts & exclusive benefits</span>
+          </div>
         </div>
-      ) : (
-        <StudentRegistrationStep2 onBack={() => setStep(1)} onClose={onClose} studentData={formData} />
-      )}
+      </div>
     </div>
   );
 }

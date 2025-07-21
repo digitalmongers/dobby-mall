@@ -1,11 +1,10 @@
 "use client";
-import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Play, Edit3, Users, ShoppingCart, Search, Heart, User, MapPin, ChevronDown, Menu } from 'lucide-react';
+import React from 'react';
+import { ChevronLeft, ChevronRight} from 'lucide-react';
 
 
 const CoverHeroSection = () => {
- const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+// Removed unused currentSlide state
 
   const products = [
     {
@@ -42,16 +41,12 @@ const CoverHeroSection = () => {
     }
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % products.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + products.length) % products.length);
-  };
+  // Removed nextSlide and prevSlide since currentSlide is not used
+  const nextSlide = () => {};
+  const prevSlide = () => {};
 
   return (
-    <div className="bg-white">
+    <div className="bg-white top-2">
       {/* Hero Section with Video */}
       <div className="relative h-[90vh] w-full overflow-hidden">
         <video
@@ -60,7 +55,7 @@ const CoverHeroSection = () => {
           muted
           loop
           playsInline
-          src="/videos/HOMEPAGE_1.mp4" 
+          src="/videos/HOMEPAGE_1.mp4"  
         ></video>
 
         {/* Overlay */}
@@ -69,7 +64,7 @@ const CoverHeroSection = () => {
         {/* Text & Button Overlay */}
         <div className="relative z-20 flex flex-col justify-center items-center h-full text-center text-white px-4">
           <h1 className="text-3xl md:text-5xl font-bold mb-6">
-            We've got you covered, no matter what!
+            We&apos;ve got you covered, no matter what!
           </h1>
           <button className="border border-white px-6 py-3 rounded-full hover:bg-white hover:text-black transition">
             Shop Custom Covers now
@@ -119,7 +114,7 @@ const CoverHeroSection = () => {
        <div className="w-full h-full mx-auto px-4 sm:px-6 lg:px-8 py-16 ">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Discover this season's trending must-haves now!
+            Discover this season&apos;s trending must-haves now!
           </h2>
         </div>
 
@@ -135,7 +130,7 @@ const CoverHeroSection = () => {
             
             <div className="flex-1 mx-8">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {products.map((product, index) => (
+                {products.map((product) => (
                   <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="relative">
                       <img 

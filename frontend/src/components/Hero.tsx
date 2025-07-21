@@ -1,12 +1,11 @@
 "use client";
 import React, { useState } from 'react';
-import { ChevronLeft, ChevronRight, Play, Edit3, Users, ShoppingCart, Search, Heart, User, MapPin, ChevronDown, Menu } from 'lucide-react';
-import StudentRegistration from './Student/StudentRegistration';
+import { ChevronLeft, ChevronRight} from 'lucide-react';
+import StudentRegistration from './Student/StudentRegistrationstep1';
 import ShopkeeperRegistration from './Shopkeeper/ShopkeeperRegistration';
-
+import TrustBanner from './trust-banner';
 const Hero = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // Removed unused currentSlide state
   const [showStudentModal, setShowStudentModal] = useState(false);
 const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
   const products = [
@@ -44,38 +43,30 @@ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
     }
   ];
 
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % products.length);
-  };
+  // Removed nextSlide and prevSlide since currentSlide is not used
 
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + products.length) % products.length);
-  };
 
-  const howItWorksSteps = [
-    {
-      icon: <Edit3 className="w-8 h-8 text-blue-500" />,
-      title: "Ask to edit",
-      description: "Request changes to products or listings"
-    },
-    {
-      icon: <Users className="w-8 h-8 text-blue-500" />,
-      title: "Connect with vendors",
-      description: "Work directly with sellers"
-    },
-    {
-      icon: <ShoppingCart className="w-8 h-8 text-blue-500" />,
-      title: "Shop with confidence",
-      description: "Purchase quality products"
-    }
-  ];
+  function prevSlide(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+    event.preventDefault();
+
+    console.log('Previous slide clicked');
+  }
+
+  function nextSlide(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
+    event.preventDefault();
+
+    console.log('Next slide clicked');
+  }
 
   return (
     <div className="min-h-screen bg-white">
       {/* Modal */}
     {showStudentModal && (
   <div className="fixed inset-0 z-50 backdrop-blur-[2px] bg-transparent flex items-center justify-center p-4">
-    <StudentRegistration onClose={() => setShowStudentModal(false)} />
+    <StudentRegistration 
+      onClose={() => setShowStudentModal(false)} 
+      onBack={() => setShowStudentModal(false)} 
+    />
   </div>
 )}
 
@@ -85,6 +76,7 @@ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
   </div>
 )}
   
+      <TrustBanner/>
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
@@ -118,10 +110,10 @@ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
     </div>
               </div>
               
-              {/* Shopkeeper CTA */}
+              Shopkeeper CTA
               <div className="space-y-4 z-10">
                   <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-23 " />
-                <button onClick={() => setIsShopkeeperModalOpen(true)}  className="mt-50 w-[300px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
+                <button  onClick={() => setShowStudentModal(true)} className="mt-50 w-[200px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
       Join as a Shopkeeper
     </button>
         
@@ -170,7 +162,7 @@ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
       <div className=" w-full h-full mx-auto px-4 sm:px-6 lg:px-8 py-16 ">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            Discover this season's trending must-haves now!
+            Discover this season&#39;s trending must-haves now!
           </h2>
         </div>
 
@@ -186,7 +178,7 @@ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
             
             <div className="flex-1 mx-2 my-6   ">
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                {products.map((product, index) => (
+                {products.map((product) => (
                   <div key={product.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                     <div className="relative">
                       <img 
@@ -266,7 +258,7 @@ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
   </div>
 
   {/* Students Frame */}
-  <div className="w-[1327px] h-[619px] mx-auto px-[22px] py-6 border border-[#CCC9C9] flex items-center gap-[102px]">
+<div className="w-[1327px] h-[619px] mx-auto mb-12 px-[22px] py-6 border border-[#CCC9C9] flex items-center gap-[118px]">
     <div className="flex-1">
       <h3 className="text-2xl font-bold text-gray-800 mb-2">How does it works for Students?</h3>
       <p className="text-gray-600 mb-6 max-w-xl text-sm">

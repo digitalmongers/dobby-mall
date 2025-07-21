@@ -117,7 +117,7 @@ const handleContinue = async () => {
                 Enter your code to sign in
               </h1>
               <p className="text-gray-600 text-sm mb-2">
-                We've sent a 6-digit code to <span className="font-medium">{email}</span>.
+                We&#39;ve sent a 6-digit code to <span className="font-medium">{email}</span>.
               </p>
               <p className="text-gray-600 text-sm">Enter it below to complete your registration.</p>
             </div>
@@ -152,7 +152,7 @@ const handleContinue = async () => {
                 <Check className="w-3 h-3 text-white" />
               </div>
               <p className="text-sm text-gray-600 leading-relaxed">
-                By agreeing, you'll get our latest offers, updates, and ideas via SMS, WhatsApp, or Email.
+                By agreeing, you&#39;ll get our latest offers, updates, and ideas via SMS, WhatsApp, or Email.
               </p>
             </div>
 

@@ -12,7 +12,7 @@ export default function EventsAndFooter() {
           src="/images/book.png"
           alt="Background Book"
           layout="fill"
-          objectFit="cover"
+          objectFit="overlay"
           className="z-0"
         />
 
@@ -30,7 +30,7 @@ export default function EventsAndFooter() {
         </div>
 
         {/* Right Overlay Book Image */}
-        <div className="absolute w-[340px]  h-[400px] bottom-0 left-295 z-10">
+        <div className="absolute w-[30px] h-[400px] bottom-0 left-295 z-10">
           <Image
             src="/images/book.png"
             alt="Overlay Book"
