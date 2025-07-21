@@ -57,7 +57,7 @@ export default function DobbyFooter() {
           </div>
           
           {/* Icons and Newsletter Section */}
-          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center justify-end gap-6 h-full">
             {/* Left side - Brand Images */}
            <div className="flex  gap-4 ml-198 mt-18">
         <div className="w-16 h-12 rounded-lg flex items-center justify-center">

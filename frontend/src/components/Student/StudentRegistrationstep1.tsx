@@ -2,13 +2,14 @@
 import React, { useState } from 'react';
 import { ArrowLeft, X } from 'lucide-react';
 import StudentRegistrationStep2 from './StudentRegistrationStep2';
+import StudentRegistrationModal from './StudentRegistration';
 
 interface Step1Props {
   onBack: () => void;
   onClose: () => void;
 }
 
-export default function StudentRegistrationStep1({ onBack, onClose }: Step1Props) {
+export default function StudentRegistration({ onBack, onClose }: Step1Props) {
   const [step, setStep] = useState(1);
 
   const [formData, setFormData] = useState({
@@ -44,12 +45,16 @@ export default function StudentRegistrationStep1({ onBack, onClose }: Step1Props
           {/* Right side - Form */}
           <div className="flex-1 p-8 relative">
             {/* Header */}
-            <div className="flex justify-end mb-8">
+            <div className="flex items-center justify-between mb-8">
+              <button className="flex items-center text-gray-600 hover:text-gray-800"
+              onClick={onBack}>
+                <ArrowLeft className="w-5 h-5 mr-2" />
+                <span className="text-sm">Back</span>
+              </button>
               <button onClick={onClose} className="text-gray-400 hover:text-gray-600">
                 <X className="w-6 h-6" />
               </button>
             </div>
-
 
             {/* Title */}
             <div className="mb-8">
@@ -139,7 +144,7 @@ export default function StudentRegistrationStep1({ onBack, onClose }: Step1Props
           </div>
         </div>
       ) : (
-        <StudentRegistrationModal onBack={()=> setStep(1)} onClose={onClose} />
+        <StudentRegistrationModal isOpen={true} onClose={onClose} />
       )}
       {step === 2 && (
         <StudentRegistrationStep2 onBack={() => setStep(2)} onClose={onClose} studentData={formData} />

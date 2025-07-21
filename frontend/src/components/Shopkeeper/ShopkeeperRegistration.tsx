@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Mail, Phone, Chrome, Facebook, ShoppingCart, Apple } from 'lucide-react';
+import { X, Chrome, Facebook, ShoppingCart, Apple } from 'lucide-react';
 
 export default function ShopkeeperRegistration({ onClose }: { onClose: () => void })  {
  
@@ -11,7 +11,11 @@ export default function ShopkeeperRegistration({ onClose }: { onClose: () => voi
     console.log('Continue with:', email);
   };
 
-  const handleSocialLogin = (provider) => {
+  interface SocialLoginProviderProps {
+    provider: 'Google' | 'Facebook' | 'Amazon' | 'Apple' | string;
+  }
+
+  const handleSocialLogin = (provider: SocialLoginProviderProps['provider']): void => {
     console.log('Login with:', provider);
   };
 

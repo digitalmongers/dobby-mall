@@ -3,7 +3,7 @@ import { ChevronLeft, ChevronRight, Phone } from 'lucide-react';
 
 export default function PromoBanner() {
   return (
-    <div className="w-full h-[50px] bg-[#302E2EDB] relative flex items-center justify-between px-6">
+    <div className="w-50px h-[50px] bg-[#302E2EDB] relative flex items-center justify-between px-6">
       {/* Left side - Free Shipping */}
       <div className="flex items-center">
         <div className="bg-[#2867D9] rounded-[4px] text-white text-[12px] px-3 py-1 font-medium">

@@ -1,8 +1,8 @@
 "use client";
 import React, { useState }  from 'react';
-import { Search  , ScanLine, Mic, ChevronDown, User, UserCheck, GraduationCap,X } from 'lucide-react';
+import { Search  , ScanLine, Mic, ChevronDown, User, UserCheck, GraduationCap} from 'lucide-react';
 import PromoBanner from './PromoBanner';
-import StudentRegistration from './Student/StudentRegistration';
+import StudentRegistration from './Student/StudentRegistrationstep1';
 import StudentSignIn from './Student/StudentSignIn';
 import ShopkeeperRegistration from './Shopkeeper/ShopkeeperRegistration';
 
@@ -38,7 +38,10 @@ const handleShopkeeperRegister = () => {
     <header className="w-full">
  {showStudentModal && (
       <div className="fixed inset-0 z-50 backdrop-blur-[2px] bg-transparent flex items-center justify-center p-4">
-        <StudentRegistration onClose={() => setShowStudentModal(false)} />
+        <StudentRegistration 
+          onClose={() => setShowStudentModal(false)} 
+          onBack={() => setShowStudentModal(false)} 
+        />
       </div>
     )}
        {isStudentSignInOpen && (
@@ -68,8 +71,8 @@ const handleShopkeeperRegister = () => {
      </div>
    </div>
  </div>
- <div className="w-[1520px] h-[50px] -mt-0.25 bg-[#302E2EDB] relative">
- 
+ <div className="w-[1500px] h-[50px] -mt-0.25 bg-[#302E2EDB] relative">
+
      <PromoBanner/>
   
  </div>
@@ -172,7 +175,7 @@ const handleShopkeeperRegister = () => {
 
       {/* Navigation Menu */}
       <div style={{backgroundColor: '#f1f5f9'}} className="px-4 py-3 border-b border-gray-300">
-        <nav className="flex items-center space-x-8 gap-[70px]">
+        <nav className="flex justify-center gap-[60px]">
           <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b-2 border-transparent hover:border-blue-600 transition-colors">
             Patio Furniture Covers
           </a>
@@ -191,9 +194,9 @@ const handleShopkeeperRegister = () => {
           <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b-2 border-transparent hover:border-blue-600 transition-colors">
             Marine Covers
           </a>
-          <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-2 border-b-2 border-transparent hover:border-blue-600 transition-colors relative">
+          <a href="#" className="text-gray-700 hover:text-blue-600 font-medium py-1 border-b-2 border-transparent hover:border-blue-600 transition-colors relative">
             Car Covers
-            <span className="absolute -top-1 -right-2 text-white text-xs px-1.5 py-0.5 rounded-full font-semibold" style={{backgroundColor: '#22c55e'}}>
+            <span className="absolute -top-1 -right-10 text-white text-xs px-1.5 py-0.5 rounded-full font-semibold" style={{backgroundColor: '#22c55e'}}>
               New
             </span>
           </a>

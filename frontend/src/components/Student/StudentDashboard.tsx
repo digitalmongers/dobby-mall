@@ -1,8 +1,6 @@
 "use client";
-import React, { useState } from 'react';
-import { 
-  Bell, 
-  User, 
+import React from 'react';
+import {  
   TrendingUp, 
   IndianRupee, 
   Clock, 
@@ -10,12 +8,9 @@ import {
   Share2, 
   Copy, 
   Play,
-  Eye,
-  MoreHorizontal
 } from 'lucide-react';
 
 const StudentDashboard = () => {
-  const [activeTab, setActiveTab] = useState('Introduction to the program');
 
   const shopData = [
     {

@@ -17,11 +17,11 @@ const ShoppingCart = () => {
           {/* First Product */}
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 w-full max-w-sm">
             <div className="flex items-center gap-4">
-              <div className="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center">
+              <div className="w-30 h-20 bg-gray-100 rounded-lg flex items-center justify-center">
                 <img 
                   src="/images/patio-chair.png" 
                   alt="Patio Chair"
-                  className="w-16 h-16 object-cover rounded"
+                  className="w-50 h-16 object-cover rounded"
                 />
               </div>
               <div className="flex-1">
@@ -42,11 +42,11 @@ const ShoppingCart = () => {
           {/* Second Product */}
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 w-full max-w-sm">
             <div className="flex items-center gap-4">
-              <div className="w-20 h-20 bg-gray-100 rounded-lg flex items-center justify-center">
+              <div className="w-30 h-20 bg-gray-100 rounded-lg flex items-center justify-center">
                 <img 
                   src="/images/patio-chair.png" 
                   alt="Patio Chair"
-                  className="w-16 h-16 object-cover rounded"
+                  className="w-50 h-16 object-cover rounded"
                 />
               </div>
               <div className="flex-1">
