@@ -65,12 +65,12 @@ const StudentDashboard = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#F3F0F0]">
-      {/* Header */}
-    
+    // <div className="min-h-screen w-full bg-[#F3F0F0]">
+      <div className="min-h-screen -ml-31 -mt-6  w-[124%] bg-[#F3F0F0]">
+
 
       {/* Main Content */}
-      <div className="p-6">
+      <div className="p-6 ">
         <h1 className="text-2xl font-bold text-gray-900 mb-8">Student Earnings Dashboard</h1>
 
         {/* Stats Cards */}

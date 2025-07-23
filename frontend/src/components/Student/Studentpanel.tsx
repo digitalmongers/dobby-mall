@@ -13,7 +13,7 @@ const StudentPanel = () => {
   return (
     <div>
       <StudentSidebar/>
-      <div className='w-[82%] ml-64 -mt-174 '><StudentDashboard/></div>
+      <div><StudentDashboard/></div>
       <Studentshop/>
       <StudentEarnings/>
       <StudentPayouts/>
