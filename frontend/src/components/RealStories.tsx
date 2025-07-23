@@ -83,21 +83,23 @@ const RealStories = () => {
       <div className="mt-20 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
         {/* Text Section */}
         <div className="flex-1">
-          <p className="text-gray-700 text-sm">The classic collection by</p>
-          <h2 className="text-3xl font-bold text-[#1E3A8A] mb-4">
-            Cover <span className="text-[#D77E4E]">max</span>
+          <p className="text-[#003056] font-[poppins] text-[24px] font-bold ">The classic collection by</p>
+          <h2 className="font-[poppins] text-[37.57px] font-bold text-[#1E3A8A] mb-4 flex items-center gap-2">
+            Cover 
+            <img src="/images/Group 26.png" alt="Group 26" style={{ width: "78px", height: "27px" }} />
           </h2>
-          <p className="text-gray-600 mb-4">
+
+          <p className="text-[#003056] mb-4 font-[poppins]">
             When tough isn’t tough enough, you need to take your cover protection
             to the Cover Max. Tear and abrasion resistant polyester, it is
             waterproof and perfect for regions with high rainfall.
           </p>
-          <div className="flex flex-wrap gap-4 text-sm text-gray-700 mb-6">
+          <div className="flex flex-wrap gap-4 text-sm text-[#003056] mb-6 font-[poppins]">
             <span>For moderate weather</span>
             <span>Wet conditions</span>
             <span>Home & commercial use</span>
           </div>
-          <button className="bg-[#1E3A8A] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#2540a0] transition">
+          <button className="bg-[#2C71DE] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#2540a0] transition font-[poppins]">
             Know more
           </button>
 
@@ -125,7 +127,7 @@ const RealStories = () => {
         <img
           src="/images/appliance.png"
           alt="Cover Max"
-          className="w-full rounded-2xl shadow-lg object-cover"
+          className="w-full rounded-2xl object-cover"
         />
       </div>
     </div>

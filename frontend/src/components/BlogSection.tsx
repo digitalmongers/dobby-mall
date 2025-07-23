@@ -35,7 +35,7 @@ export default function BlogSection() {
   return (
     <section className="px-4 py-10">
       <div className="max-w-7xl mx-auto text-center">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-8">Inspiration and news</h2>
+        <h2 className="text-[40px] font-medium text-[#003056] mb-10 font-[poppins]">Inspiration and news</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {blogPosts.map((post) => (
             <div
@@ -66,7 +66,7 @@ export default function BlogSection() {
           ))}
         </div>
         <div className="mt-8">
-          <button className="px-5 py-2 border border-blue-500 text-blue-600 rounded-md hover:bg-blue-50 text-sm font-medium">
+          <button className="px-5 py-2 border border-[#2C71DE] text-[#2C71DE] rounded-md hover:bg-blue-50 text-sm font-[poppins] font-medium text[14px]">
             View all blogs & news
           </button>
         </div>

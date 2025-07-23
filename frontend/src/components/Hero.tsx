@@ -5,9 +5,8 @@ import StudentRegistration from './Student/StudentRegistrationstep1';
 import ShopkeeperRegistration from './Shopkeeper/ShopkeeperRegistration';
 import TrustBanner from './trust-banner';
 const Hero = () => {
-  // Removed unused currentSlide state
   const [showStudentModal, setShowStudentModal] = useState(false);
-const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
+  const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
   const products = [
     {
       id: 1,
@@ -82,7 +81,7 @@ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
       <div className="relative overflow-hidden">
         <div className="flex min-h-screen">
           {/* Left Section - Shopkeeper */}
-          <div className="flex-1 bg-gradient-to-br from-orange-400 via-red-500 to-pink-500 relative">
+          <div className="flex-1 bg-gradient-to-br relative">
             {/* Background pattern/texture */}
             <div className="absolute inset-0 opacity-20">
               <div className="w-full h-full" style={{
@@ -107,7 +106,7 @@ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
                <div className="absolute inset-0 flex flex-col items-center justify-center text-white space-y-4 ">
 
    
-    </div>
+            </div>
               </div>
               
               Shopkeeper CTA
@@ -122,7 +121,7 @@ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
           </div>
 
           {/* Right Section - Student */}
-          <div className="flex-1 bg-gradient-to-bl from-blue-400 via-blue-600 to-purple-700 relative">
+          <div className="flex-1 bg-gradient-to-bl relative">
             {/* Background pattern */}
             <div className="absolute inset-0 opacity-20">
               <div className="w-full h-full" style={{

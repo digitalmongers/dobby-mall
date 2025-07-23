@@ -36,7 +36,7 @@ export default function StudentEarnings() {
     }
   ];
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     switch(status) {
       case 'Completed': return 'text-green-500';
       case 'Pending': return 'text-yellow-500';
@@ -44,7 +44,7 @@ export default function StudentEarnings() {
     }
   };
 
-  const getStatusBg = (status) => {
+  const getStatusBg = (status: string) => {
     switch(status) {
       case 'Completed': return 'bg-green-50';
       case 'Pending': return 'bg-yellow-50';

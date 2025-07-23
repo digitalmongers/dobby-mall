@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from 'react';
+import StudentSidebar from '@/components/Student/StudentSidebar'
 import { Plus, Check, Clock, X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 export default function Studentshop () {
@@ -36,7 +37,7 @@ export default function Studentshop () {
     }
   ];
 
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     switch(status) {
       case 'Active': return 'text-green-500';
       case 'Pending': return 'text-yellow-500';
@@ -45,7 +46,7 @@ export default function Studentshop () {
     }
   };
 
-  const getStatusBg = (status) => {
+  const getStatusBg = (status: string) => {
     switch(status) {
       case 'Active': return 'bg-green-50';
       case 'Pending': return 'bg-yellow-50';
@@ -55,8 +56,10 @@ export default function Studentshop () {
   };
 
   return (
+    // <div>
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
+        {/*Right Side */}
         {/* Header */}
         <div className="flex justify-between items-center mb-8">
           <h1 className="text-2xl font-semibold text-gray-900">Shops Management</h1>

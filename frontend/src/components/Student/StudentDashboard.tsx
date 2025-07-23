@@ -67,7 +67,6 @@ const StudentDashboard = () => {
   return (
     <div className="min-h-screen bg-[#F3F0F0]">
       {/* Header */}
-    
 
       {/* Main Content */}
       <div className="p-6">
