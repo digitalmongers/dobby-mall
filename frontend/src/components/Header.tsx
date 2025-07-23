@@ -8,16 +8,9 @@ import ShopkeeperRegistration from './Shopkeeper/ShopkeeperRegistration';
 
 const Header = () => {
  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-const [showStudentModal, setShowStudentModal] = useState(false);
-const [isStudentSignInOpen, setIsStudentSignInOpen] = useState(false);
-const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
-  const handleMouseEnter = (dropdown: string) => {
-    setActiveDropdown(dropdown);
-  };
-
-  const handleMouseLeave = () => {
-    setActiveDropdown(null);
-  };
+ const [showStudentModal, setShowStudentModal] = useState(false);
+ const [isStudentSignInOpen, setIsStudentSignInOpen] = useState(false);
+ const [isShopkeeperModalOpen, setIsShopkeeperModalOpen] = useState(false);
 
   const handleOpenStudentModal = () => {
   setShowStudentModal(true);
@@ -33,10 +26,13 @@ const handleShopkeeperRegister = () => {
   setIsShopkeeperModalOpen(true);
   setActiveDropdown(null); // Close dropdown
 };
+  function toggleDropdown(dropdown: string): void {
+    setActiveDropdown(activeDropdown === dropdown ? null : dropdown);
+  }
 
   return (
     <header className="w-full">
- {showStudentModal && (
+      {showStudentModal && (
       <div className="fixed inset-0 z-50 backdrop-blur-[2px] bg-transparent flex items-center justify-center p-4">
         <StudentRegistration 
           onClose={() => setShowStudentModal(false)} 
@@ -71,7 +67,7 @@ const handleShopkeeperRegister = () => {
      </div>
    </div>
  </div>
- <div className="w-[1500px] h-[50px] -mt-0.25 bg-[#302E2EDB] relative">
+ <div className="w-[1350px] h-[50px] -mt-0.25 bg-[#302E2EDB] relative">
 
      <PromoBanner/>
   
@@ -107,51 +103,87 @@ const handleShopkeeperRegister = () => {
           </div>
         </div>
         {/* User Controls */}
-        <div className="flex items-center space-x-2 mx-8 ">
-          {/* User Dropdown */}
-          <div className="relative" onMouseEnter={() => handleMouseEnter('user')} onMouseLeave={handleMouseLeave}>
-          <button className="flex items-center space-x-1 px-4 py-2 rounded-sm text-[#39FF14] font-medium hover:opacity-90 transition-opacity border border-[#39FF14]" style={{backgroundColor: '#1a1f71'}}>
-            <span className="text-base">User</span>
-            <ChevronDown className="w-3 h-3" />
-          </button>
-           {activeDropdown === 'user' && (
-              <div className="absolute top-full mt-1 left-0 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                <div className="py-2">
-                  <div className="flex items-center px-4 py-2 text-gray-700 border-b border-gray-100">
-                    <User className="w-4 h-4 mr-2" />
-                    <span className="font-medium">User</span>
-                    <ChevronDown className="w-4 h-4 ml-auto text-green-600" />
-                  </div>
-                  <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Sign up</a>
-                  <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Sign in</a>
-                </div>
-              </div>
-            )}
+<div className="flex items-center space-x-2 mx-8">
+  {/* User Dropdown */}
+  <div className="relative">
+    <button
+      className="flex items-center space-x-1 px-4 py-2 rounded-sm text-[#39FF14] font-medium hover:opacity-90 transition-opacity border border-[#39FF14]"
+      style={{ backgroundColor: '#1a1f71' }}
+      onClick={() =>
+        setActiveDropdown(activeDropdown === 'user' ? null : 'user')
+      }
+    >
+      <span className="text-base">User</span>
+      <ChevronDown className="w-3 h-3" />
+    </button>
+
+    {activeDropdown === 'user' && (
+      <div className="absolute top-full mt-1 left-0 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+        <div className="py-2">
+          <div className="flex items-center px-4 py-2 text-gray-700 border-b border-gray-100">
+            <User className="w-4 h-4 mr-2" />
+            <span className="font-medium">User</span>
+            <ChevronDown className="w-4 h-4 ml-auto text-green-600" />
           </div>
+          <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
+            Sign up
+          </a>
+          <a href="#" className="block px-4 py-2 text-gray-700 hover:bg-gray-50">
+            Sign in
+          </a>
+        </div>
+      </div>
+    )}
+  </div>
+
+
           {/* Shopkeeper Dropdown */}
-           <div className="relative" onMouseEnter={() => handleMouseEnter('shopkeeper')} onMouseLeave={handleMouseLeave}>
-          <button className="flex items-center space-x-1 px-4 py-2 rounded-sm text-[#39FF14] font-medium hover:opacity-90 transition-opacity border border-[#39FF14]" style={{backgroundColor: '#1a1f71'}} >
-            <span className="text-base">Shopkeeper</span>
-            <ChevronDown className="w-3 h-3" />
-          </button>
-          {activeDropdown === 'shopkeeper' && (
-              <div className="absolute top-full mt-1 left-0 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
-                <div className="py-2">
-                  <div className="flex items-center px-4 py-2 text-gray-700 border-b border-gray-100">
-                    <UserCheck className="w-4 h-4 mr-2" />
-                    <span className="font-medium">Shopkeeper</span>
-                    <ChevronDown className="w-4 h-4 ml-auto text-green-600" />
+           <div className="relative">
+              <button
+                onClick={() =>
+                  setActiveDropdown(activeDropdown === 'shopkeeper' ? null : 'shopkeeper')
+                }
+                className="flex items-center space-x-1 px-4 py-2 rounded-sm text-[#39FF14] font-medium hover:opacity-90 transition-opacity border border-[#39FF14]"
+                style={{ backgroundColor: '#1a1f71' }}
+              >
+                <span className="text-base">Shopkeeper</span>
+                <ChevronDown className="w-3 h-3" />
+              </button>
+
+              {activeDropdown === 'shopkeeper' && (
+                <div className="absolute top-full mt-1 left-0 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+                  <div className="py-2">
+                    <div className="flex items-center px-4 py-2 text-gray-700 border-b border-gray-100">
+                      <UserCheck className="w-4 h-4 mr-2" />
+                      <span className="font-medium">Shopkeeper</span>
+                      <ChevronDown className="w-4 h-4 ml-auto text-green-600" />
+                    </div>
+                    <a
+                      href="#"
+                      onClick={handleShopkeeperRegister}
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
+                    >
+                      Register Now
+                    </a>
+                    <a
+                      href="#"
+                      onClick={handleShopkeeperRegister}
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
+                    >
+                      Sign in
+                    </a>
                   </div>
-                  <a href="#" onClick={ handleShopkeeperRegister } className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Register Now</a>
-                  <a href="#" onClick={ handleShopkeeperRegister }  className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Sign in</a>
                 </div>
-              </div>
-            )}
-          </div>
+              )}
+            </div>
 
          {/* Student Dropdown */}
-          <div className="relative" onMouseEnter={() => handleMouseEnter('student')} onMouseLeave={handleMouseLeave}>
-             <button className="flex items-center space-x-1 px-4 py-2 rounded-sm text-[#39FF14] font-medium hover:opacity-90 transition-opacity border border-[#39FF14]" style={{backgroundColor: '#1a1f71'}} >
+          <div className="relative">
+            <button
+              onClick={() => toggleDropdown('student')}
+              className="flex items-center space-x-1 px-4 py-2 rounded-sm text-[#39FF14] font-medium hover:opacity-90 transition-opacity border border-[#39FF14]"
+              style={{ backgroundColor: '#1a1f71' }}
+            >
               <span className="text-base">Student</span>
               <ChevronDown className="w-3 h-3" />
             </button>
@@ -163,12 +195,25 @@ const handleShopkeeperRegister = () => {
                     <span className="font-medium">Student</span>
                     <ChevronDown className="w-4 h-4 ml-auto text-green-600" />
                   </div>
-                  <a href="#" onClick={handleOpenStudentModal} className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Register Now</a>
-                  <a href="#" onClick={handleStudentSignIn}  className="block px-4 py-2 text-gray-700 hover:bg-gray-50">Sign in</a>
+                  <a
+                    href="#"
+                    onClick={handleOpenStudentModal}
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
+                  >
+                    Register Now
+                  </a>
+                  <a
+                    href="#"
+                    onClick={handleStudentSignIn}
+                    className="block px-4 py-2 text-gray-700 hover:bg-gray-50"
+                  >
+                    Sign in
+                  </a>
                 </div>
               </div>
             )}
           </div>
+
         </div>
       </div>
      
@@ -207,4 +252,3 @@ const handleShopkeeperRegister = () => {
 };
 
 export default Header;
-

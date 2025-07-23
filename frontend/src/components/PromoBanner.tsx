@@ -49,8 +49,8 @@ export default function PromoBanner() {
 
         {/* Shopping Cart Icon */}
         <div className="flex items-center space-x-1 text-white text-[12px]">
-          <div className="w-4 h-4 border border-white rounded-sm flex items-center justify-center">
-            <div className="w-2 h-2 bg-white rounded-full"></div>
+          <div className="w-[22px] h-[16px] flex items-center justify-center">
+            <img src="/images/FLage 1.png"/>
           </div>
           <ChevronRight size={12} className="rotate-90" />
         </div>

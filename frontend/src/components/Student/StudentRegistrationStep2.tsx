@@ -5,6 +5,13 @@ import { ArrowLeft, X } from 'lucide-react';
 interface Step2Props {
   onBack: () => void;
   onClose: () => void;
+  studentData: {
+    fullName: string;
+    email: string;
+    mobile: string;
+    school: string;
+    grade: string;
+  };
 }
 
 export default function StudentRegistrationStep2({ onBack, onClose }: Step2Props) {
@@ -16,10 +23,11 @@ export default function StudentRegistrationStep2({ onBack, onClose }: Step2Props
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value, type, checked } = e.target;
+    const target = e.target as HTMLInputElement;
+    const { name, value, type } = target;
     setFormData({
       ...formData,
-      [name]: type === 'checkbox' ? checked : value
+      [name]: type === 'checkbox' ? target.checked : value
     });
   };
 

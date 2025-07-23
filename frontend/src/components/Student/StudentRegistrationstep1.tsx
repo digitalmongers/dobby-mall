@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { ArrowLeft, X } from 'lucide-react';
+import {  X } from 'lucide-react';
 import StudentRegistrationStep2 from './StudentRegistrationStep2';
 
 interface Step1Props {
@@ -8,7 +8,7 @@ interface Step1Props {
   onClose: () => void;
 }
 
-export default function StudentRegistrationStep1({ onBack, onClose }: Step1Props) {
+export default function StudentRegistrationStep1({ onClose }: Step1Props) {
   const [step, setStep] = useState(1);
 
   const [formData, setFormData] = useState({
@@ -129,7 +129,7 @@ export default function StudentRegistrationStep1({ onBack, onClose }: Step1Props
                       ? 'bg-blue-600 text-white hover:bg-blue-700'
                       : 'bg-blue-200 text-gray-500 cursor-not-allowed'
                   }`}
-                  onClick={() => setStep(3)}
+                  onClick={() => setStep(2)}
                   disabled={!allFieldsFilled}
                 >
                   Next
@@ -139,11 +139,9 @@ export default function StudentRegistrationStep1({ onBack, onClose }: Step1Props
           </div>
         </div>
       ) : (
-        <StudentRegistrationModal onBack={()=> setStep(1)} onClose={onClose} />
+        <StudentRegistrationStep2 onBack={() => setStep(1)} onClose={onClose} studentData={formData} />
       )}
-      {step === 2 && (
-        <StudentRegistrationStep2 onBack={() => setStep(2)} onClose={onClose} studentData={formData} />
-      )}
+      
     </div>
   );
 }

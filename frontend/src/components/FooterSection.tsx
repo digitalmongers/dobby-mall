@@ -17,13 +17,16 @@ export default function EventsAndFooter() {
         />
 
         {/* Center Text & Button */}
-        <div className="absolute inset-0 z-20 flex items-center justify-center ">
-          <div className="bg-transparent p-6  text-center max-w-md">
-            <h2 className="text-xl font-semibold mb-2">Upcoming Events</h2>
-            <p className="text-sm text-gray-700 mb-4">
-              Lorem ipsum dolor sit amet consectetur. Sed in pellentesque vel enim in venenatis eleifend nisl. Tortor mi proin
+        <div className="absolute inset-0 z-20 flex items-center justify-center px-4">
+          <div className="bg-transparent text-center max-w-md">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold mb-2 text-[#003056]">
+              Upcoming Events
+            </h2>
+            <p className="text-sm sm:text-base text-black mb-6 leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur. Sed in pellentesque<br />
+              vel enim in venenatis eleifend nisl. Tortor mi proin
             </p>
-            <button className="px-6 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 text-sm">
+            <button className="px-6 py-3 text-white text-lg sm:text-xl bg-[#2C71DE] rounded-sm border-2 border-[#2C71DE] hover:bg-blue-600 w-[200px] sm:w-[245px] h-[55px] sm:h-[61px] transition-all">
               Partner with us
             </button>
           </div>
@@ -50,9 +53,6 @@ export default function EventsAndFooter() {
         </div>
       </section>
 
-      {/* 👣 Footer Below — Reuse previous footer or insert yours here */}
-      {/* You can reuse the footer code from previous responses here below this section */}
     </div>
   );
 }
-
