@@ -42,7 +42,7 @@ const Hero = () => {
     }
   ];
 
-  // Removed nextSlide and prevSlide since currentSlide is not used
+
 
 
   function prevSlide(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void {
@@ -112,9 +112,9 @@ const Hero = () => {
               Shopkeeper CTA
               <div className="space-y-4 z-10">
                   <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-23 " />
-                <button  onClick={() => setShowStudentModal(true)} className="mt-50 w-[200px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
-      Join as a Shopkeeper
-    </button>
+                <button  onClick={() => setShowStudentModal(true)} className="mt-50 w-[250px] h-[60px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
+                  Join as a Shopkeeper
+                </button>
         
               </div>
             </div>
@@ -147,10 +147,10 @@ const Hero = () => {
               
               {/* Student CTA */}
               <div className="space-y-4 z-10">
-                <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-36 " />
-                 <button  onClick={() => setShowStudentModal(true)} className="mt-50 w-[300px] h-[78px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
-      Join as a Student
-    </button>
+                <img src="/images/play.png" alt="Play" className="w-20 h-20 mt-70 ml-32 " />
+                 <button  onClick={() => setShowStudentModal(true)} className="mt-55 w-[250px] h-[60px] rounded-[8px] bg-blue-600 text-white font-semibold shadow hover:bg-blue-700 transition duration-200">
+                  Join as a Student
+                </button>
               </div>
             </div>
           </div>
@@ -220,7 +220,7 @@ const Hero = () => {
               onClick={nextSlide}
               className="absolute right-18 top-40 transform -translate-y-1/2 p-2 rounded-full bg-[#003056] hover:bg-gray-200 transition-colors"
             >
-              <ChevronRight className="  w-6 h-6 text-gray-600" />
+              <ChevronRight className="w-6 h-6 text-gray-600" />
             </button>
           </div>
         </div>

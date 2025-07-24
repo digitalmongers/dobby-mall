@@ -21,7 +21,7 @@ export default function TrustBanner() {
   ]
 
   return (
-    <div className="w-full bg-[#E0F6F5] py-8 px-4">
+    <div className="w-full bg-[#E0F6F5] py-5 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           {/* Rating Section */}

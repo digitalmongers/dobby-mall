@@ -47,7 +47,7 @@ export default function ShopkeeperRegistration({ onClose }: { onClose: () => voi
           </div>
 
           {/* Email Input */}
-          <div className="mb-6 h-44px w-300px"  style={{ height: "44px", width: "344px" }}>
+          <div className="mb-6 h-[44px] w-[344px]">
             <div className="relative">
               <input
                 type="email"
@@ -81,7 +81,7 @@ export default function ShopkeeperRegistration({ onClose }: { onClose: () => voi
             
             <button
               onClick={() => handleSocialLogin("Google")}
-              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 hover:bg-gray-50 transition-colors ml-5" style={{ height:"40px",width:"168px"}}>
+              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors ml-5" style={{ height:"40px",width:"168px"}}>
               
               <img src='/images/google-logo.png' className="w-20px h-20px" />
               <span className="text-gray-700 font-medium">Google</span>
@@ -89,7 +89,7 @@ export default function ShopkeeperRegistration({ onClose }: { onClose: () => voi
 
             <button
               onClick={() => handleSocialLogin("Facebook")}
-              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 hover:bg-gray-50 transition-colors ml-1" style={{height:"40px",width:"168px"}}
+              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors ml-1" style={{height:"40px",width:"168px"}}
             >
               <img src="/images/Facebook_Logo.png" className="w-20px h-20px" />
               <span className="text-gray-700 font-medium">Facebook</span>
@@ -97,7 +97,7 @@ export default function ShopkeeperRegistration({ onClose }: { onClose: () => voi
 
             <button
               onClick={() => handleSocialLogin("Amazon")}
-              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 hover:bg-gray-50 transition-colors ml-5" style={{height: "40px",width:"168px"}}
+              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors ml-5" style={{height: "40px",width:"168px"}}
             >
               <img src="/images/Amazon_icon 1.png" className="w-20px h-20px" />
               <span className="text-gray-700 font-medium">Amazon</span>
@@ -105,7 +105,7 @@ export default function ShopkeeperRegistration({ onClose }: { onClose: () => voi
 
             <button
               onClick={() => handleSocialLogin("Apple")}
-              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 hover:bg-gray-50 transition-colors ml-1" style={{height : "40px",width: "168px"}}
+              className="flex items-center justify-center gap-2 py-3 px-4 border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors ml-1" style={{height : "40px",width: "168px"}}
             >
               <img src="/images/747 1.png" className="w-20px h-20px"/>
               <span className="text-gray-700 font-medium">Apple</span>

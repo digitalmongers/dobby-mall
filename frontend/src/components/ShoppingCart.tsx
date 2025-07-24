@@ -102,8 +102,7 @@ const ShoppingCart = () => {
 
       {/* Pricing */}
       <div className="mt-2 ml-5">
-        <div className="text-[#2867D9] font-semibold text-sm leading-tight text-[12px]">$51</div>
-        <div className="text-[#2867D9] font-semibold text-sm leading-tight">.60</div>
+        <div className="text-[#2867D9] font-semibold text-sm leading-tight text-[12px]">$51.60</div>
       </div>
     </div>
   </div>

@@ -2,7 +2,8 @@
 import axios from 'axios'; 
 import { useState } from 'react';
 import { ArrowLeft, X } from 'lucide-react';
-import StudentVerificationCode from './StudentVerificationCode'; // Update the path if needed
+import StudentVerificationCode from './StudentVerificationCode'; 
+import Alert from 'react-bootstrap/Alert';
 
 export default function StudentSignIn({ onClose }: { onClose: () => void }) {
   const [email, setEmail] = useState('');
@@ -10,7 +11,9 @@ export default function StudentSignIn({ onClose }: { onClose: () => void }) {
 
  const handleContinue = async () => {
     if (email.trim() === '') {
-      alert('Please enter your email');
+       <Alert variant="danger">
+          Please enter your email
+        </Alert>
       return;
     }
 
