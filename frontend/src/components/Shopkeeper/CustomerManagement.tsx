@@ -1,7 +1,14 @@
+'use client'
 import React, { useState } from 'react';
 import { Users, UserPlus, UserCheck, TrendingUp, Search, Filter, Download, RefreshCw, Eye, MoreHorizontal, Plus } from 'lucide-react';
+import Sidebar from "./Sidebar"
+import Navbar from "./Navbar"
 
 export default function CustomerManagement() {
+  const [activeMenuItem, setActiveMenuItem] = useState("Dashboard")
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen)
   const [searchTerm, setSearchTerm] = useState('');
   const [groupFilter, setGroupFilter] = useState('All Groups');
   const [statusFilter, setStatusFilter] = useState('All Status');
@@ -83,10 +90,23 @@ export default function CustomerManagement() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+    <div className="min-h-screen bg-gray-50 flex">
+      {/* Sidebar */}
+            <Sidebar
+              isOpen={isSidebarOpen}
+              toggleSidebar={toggleSidebar}
+              activeItem={activeMenuItem}
+              setActiveItem={setActiveMenuItem}
+            />
+      
+            {/* Mobile Sidebar Overlay */}
+            {isSidebarOpen && <div className="fixed inset-0 bg-opacity-50 z-40 lg:hidden" onClick={toggleSidebar} />}
+      
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
-        <div className="mb-8">
+        {/* Main Content */}
+        <div className="flex-1 flex flex-col min-w-0">
+        {/* Navbar Component */}
+        <Navbar toggleSidebar={toggleSidebar} />
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
               Customer Management Dashboard
