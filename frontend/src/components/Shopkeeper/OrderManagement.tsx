@@ -1,7 +1,14 @@
+'use client';
 import React, { useState } from 'react';
 import { ShoppingCart, DollarSign, Clock, TrendingUp, Search, Filter, Download, RefreshCw, Eye, MoreHorizontal } from 'lucide-react';
+import Sidebar from "./Sidebar"
+import Navbar from "./Navbar"
 
 export default function OrderManagement() {
+  const [activeMenuItem, setActiveMenuItem] = useState("Dashboard")
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false)
+
+  const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen)
   const [searchTerm, setSearchTerm] = useState('');
   const [timeFilter, setTimeFilter] = useState('Last 30 Days');
   const [statusFilter, setStatusFilter] = useState('All Status');
@@ -83,10 +90,22 @@ export default function OrderManagement() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+    <div className="min-h-screen bg-gray-50 flex">
+      {/* Sidebar */}
+      <Sidebar
+        isOpen={isSidebarOpen}
+        toggleSidebar={toggleSidebar}
+        activeItem={activeMenuItem}
+        setActiveItem={setActiveMenuItem}
+      />
+
+      {/* Mobile Sidebar Overlay */}
+      {isSidebarOpen && <div className="fixed inset-0 bg-opacity-50 z-40 lg:hidden" onClick={toggleSidebar} />}
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div className="mb-8">
+        <div className="flex-1 flex flex-col min-w-0">
+                  {/* Navbar Component */}
+        <Navbar toggleSidebar={toggleSidebar} />
           <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
             Order Management Dashboard
           </h1>
