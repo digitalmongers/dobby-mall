@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { ShoppingCart, DollarSign, Clock, TrendingUp, Search, Filter, Download, RefreshCw, Eye, MoreHorizontal } from 'lucide-react';
+import { ShoppingCart,Search, Filter, Download, RefreshCw, MoreHorizontal } from 'lucide-react';
+import { ChevronLeft,ChevronRight } from 'lucide-react';
 import Sidebar from "./Sidebar"
 import Navbar from "./Navbar"
 
@@ -58,34 +59,38 @@ export default function OrderManagement() {
     {
       title: 'Total Orders',
       value: '1,248',
-      change: '12% From Last Month',
-      icon: ShoppingCart,
+      subtitle: '12% From Last Month',
+      icon: <img src="/images/Shopping Cart.png" className="h-6 w-6"/>,
       color: 'bg-blue-500',
-      bgColor: 'bg-blue-50'
+      bgColor: 'bg-blue-50',
+      subtitleImg: <img src="/images/Arrow 3.png"/>
     },
     {
       title: 'Revenue',
       value: '₹ 4,892,450',
-      change: '3% New This Month',
-      icon: DollarSign,
+      subtitle: '3% New This Month',
+      icon: <img src="/images/rs-icon.png" className="h-7 w-7"/>,
       color: 'bg-green-500',
-      bgColor: 'bg-green-50'
+      bgColor: 'bg-green-50',
+      subtitleImg: <img src="/images/Arrow 3.png"/>
     },
     {
       title: 'Pending Orders',
       value: '48',
-      change: '2% Completed',
-      icon: Clock,
+      subtitle: '2% Completed',
+      icon: <img src="/images/Clock -2.png" className="h-7 w-7"/>,
       color: 'bg-yellow-500',
-      bgColor: 'bg-yellow-50'
+      bgColor: 'bg-yellow-50',
+      subtitleImg: <img src="/images/Arrow 3.png"/>
     },
     {
       title: 'Avg. Order Value',
       value: '₹ 4,890',
-      change: '6% From last Quarter',
-      icon: TrendingUp,
+      subtitle: '6% From last Quarter',
+      icon: <img src="/images/Bonds.png" className="h-6 w-6"/>,
       color: 'bg-purple-500',
-      bgColor: 'bg-purple-50'
+      bgColor: 'bg-purple-50',
+      subtitleImg: <img src="/images/Arrow 3.png"/>
     }
   ];
 
@@ -104,34 +109,42 @@ export default function OrderManagement() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex-1 flex flex-col min-w-0">
-                  {/* Navbar Component */}
+        {/* Navbar Component */}
         <Navbar toggleSidebar={toggleSidebar} />
-          <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+        {/*Main Content */}
+          <h1 className="text-xl font-semibold text-gray-900 mt-6 ml-8 mb-8">
             Order Management Dashboard
           </h1>
         </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8">
-          {stats.map((stat, index) => (
-            <div key={index} className={`${stat.bgColor} rounded-lg p-6 border border-gray-200`}>
-              <div className="flex items-center justify-between mb-4">
-                <div className={`${stat.color} p-2 rounded-lg`}>
-                  <stat.icon className="h-6 w-6 text-white" />
-                </div>
-              </div>
-              <div className="space-y-2">
-                <p className="text-sm font-medium text-gray-600">{stat.title}</p>
-                <p className="text-2xl font-bold text-gray-900">{stat.value}</p>
-                <p className="text-sm text-gray-500">{stat.change}</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 ml-8 mr-8">
+          {stats.map((stats, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-lg border pt-3 pb-3 pr-5 pl-5">
+            {/* Title and Icon on opposite sides */}
+            <div className="flex items-center justify-between mb-4">
+              <p className="text-[17px] font-medium text-[#262525]">{stats.title}</p>
+              <div className={`w-10 h-10 ${stats.bgColor} rounded-lg flex items-center justify-center`}>
+                <span className="text-lg">{stats.icon}</span>
               </div>
             </div>
-          ))}
-        </div>
+
+            {/* Value and Subtitle with Image */}
+            <div className="space-y-2">
+              <p className="text-[28px] font-bold text-gray-900">{stats.value}</p>
+              <div className="flex items-center space-x-2">
+                {stats.subtitleImg }
+                <p className="text-[13px] text-[#505050]">{stats.subtitle}</p>
+              </div>
+              </div>
+            </div>
+            ))}
+          </div>
+
 
         {/* Controls */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-4 sm:p-6 mb-6">
-          <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center justify-between">
+        <div className="bg-white rounded-lg shadow-sm border border-gray-200 mb-6 ml-8 mr-8 p-4">
+          <div className="flex flex-wrap items-center gap-4">
             <div className="flex flex-col sm:flex-row gap-3 flex-1">
               <div className="relative flex-1 sm:max-w-xs">
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
@@ -182,7 +195,7 @@ export default function OrderManagement() {
                 <Filter className="h-4 w-4" />
                 Filter
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
+              <button className="flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors">
                 <Download className="h-4 w-4" />
                 Export
               </button>
@@ -195,74 +208,57 @@ export default function OrderManagement() {
         </div>
 
         {/* Orders Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-          <div className="px-4 sm:px-6 py-4 border-b border-gray-200">
+        <div className="rounded-lg border shadow-lg ml-8 mr-8">
+          <div className="p-6  flex items-center justify-between bg-gray-300 border rounded-t-lg">
             <div className="flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <ShoppingCart className="h-5 w-5 text-blue-500" />
-                <h2 className="text-lg font-semibold text-gray-900">All Orders</h2>
+              <div className="flex items-center ">
+                <ShoppingCart className="w-5 h-5 text-blue-600 mr-2" />
+                <h2 className="font-medium text-[#000000] flex items-center text-[22px]">All Orders</h2>
               </div>
-              <button className="flex items-center gap-2 text-blue-600 hover:text-blue-800 transition-colors">
-                <Eye className="h-4 w-4" />
+              <button className="flex items-center gap-2 text-[#2F1DF7] hover:text-blue-700 transition-colors text-[18px] ml-230">
                 View All
               </button>
             </div>
           </div>
 
           {/* Desktop Table */}
-          <div className="hidden md:block overflow-x-auto">
+          <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-50 border">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Order ID
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Customer Name
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Date
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Total
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Items
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
+                    {['Order ID', 'Customer Name', 'Date', 'Total', 'Items', 'Status', 'Actions'].map((header) => (
+                      <th key={header} className="px-6 py-3 text-left text-[15px] font-medium text-[#282727] uppercase tracking-wider">
+                        {header}
+                      </th>
+                    ))}
+                  </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white">
                 {orders.map((order, index) => (
                   <tr key={index} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <td className="px-6 py-4 text-[14px] font-medium text-[#282727]">
                       {order.id}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 text-[15px] text-[#282727]">
                       {order.customer}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 text-[15px] text-[#282727]">
                       {order.date}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <td className="px-6 py-4 text-[15px] text-[#282727]">
                       {order.total}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 text-[15px] text-[#282727]">
                       {order.items}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${order.statusColor}`}>
+                    <td className="px-6 py-4">
+                      <span className={`inline-flex px-2 py-1 font-small rounded-sm ${order.statusColor} border-1 text-[12px] font-bold`}>
                         {order.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 text-[15px] font-medium text-[#282727]">
                       <button className="text-gray-400 hover:text-gray-600">
-                        <MoreHorizontal className="h-5 w-5" />
+                        <MoreHorizontal className="h-4 w-4" />
                       </button>
                     </td>
                   </tr>
@@ -299,46 +295,32 @@ export default function OrderManagement() {
           </div>
 
           {/* Pagination */}
-          <div className="px-4 sm:px-6 py-4 border-t border-gray-200">
+          <div className="px-6 py-4 border-t border-gray-200">
             <div className="flex items-center justify-between">
               <p className="text-sm text-gray-700">
-                Showing <span className="font-medium">4</span> of <span className="font-medium">198</span> Orders
+                Showing 4 of 198 Orders
               </p>
               <div className="flex items-center space-x-2">
                 <button 
                   onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                  className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50"
+                  className="p-1 rounded hover:bg-gray-200 active:bg-blue-600"
                   disabled={currentPage === 1}
                 >
-                  ‹
+                  <ChevronLeft className="w-4 h-4" />
                 </button>
-                <button className="px-3 py-1 text-sm bg-blue-500 text-white rounded">1</button>
-                <button 
-                  onClick={() => setCurrentPage(2)}
-                  className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50"
-                >
-                  2
-                </button>
-                <button 
-                  onClick={() => setCurrentPage(3)}
-                  className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50"
-                >
-                  3
-                </button>
-                <span className="px-2 text-sm text-gray-500">...</span>
-                <button 
-                  onClick={() => setCurrentPage(50)}
-                  className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50"
-                >
-                  50
-                </button>
-                <button 
-                  onClick={() => setCurrentPage(Math.min(50, currentPage + 1))}
-                  className="px-3 py-1 text-sm border border-gray-300 rounded hover:bg-gray-50"
-                  disabled={currentPage === 50}
-                >
-                  ›
-                </button>
+                {[1, 2, 3, "...", 24].map((num, idx) => (
+                    <span
+                      key={idx}
+                      className={`px-3 py-1 text-sm rounded cursor-pointer hover:bg-gray-200 ${
+                        num === 1 ? "bg-blue-600 text-white" : "text-gray-700" 
+                      }`}
+                    >
+                      {num}
+                    </span>
+                  ))}
+                  <button className="p-1 rounded hover:bg-gray-200">
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
               </div>
             </div>
           </div>

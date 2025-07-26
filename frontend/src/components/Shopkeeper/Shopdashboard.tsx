@@ -127,9 +127,9 @@ const actionButtons = [
         <Navbar toggleSidebar={toggleSidebar} />
 
         {/* Dashboard Content - Scrollable */}
-        <div className="flex-1 overflow-auto">
+        <div className="flex-1 overflow-auto ml-2 mr-2">
           <div className="p-4 lg:p-6">
-            <h1 className="text-2xl font-medium text-[#000000] mb-6">Shopkeeper Dashboard</h1>
+            <h1 className="text-xl font-semibold text-gray-900 mb-5">Shopkeeper Dashboard</h1>
 
             {/* Stats Cards */}
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-8">
@@ -163,7 +163,7 @@ const actionButtons = [
                 return (
                   <button
                     key={index}
-                    className={`${button.color} text-white rounded-lg p-4 hover:opacity-90 transition-opacity border shadow-lg w-[245px] h-[130px]`}
+                    className={`${button.color} text-white rounded-lg p-4 hover:opacity-90 transition-opacity border shadow-lg w-[280px] h-[130px]`}
                   >
                     <div className="flex flex-col items-center space-y-2">
                       <IconComponent/>
@@ -183,6 +183,7 @@ const actionButtons = [
                 </h2>
                 <button className="text-[#2F1DF7] text-[18px] hover:text-blue-700">View All</button>
               </div>
+
               <div className="overflow-x-auto">
                 <table className="w-full">
                   <thead className="bg-gray-50 border">

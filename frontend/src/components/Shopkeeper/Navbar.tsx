@@ -32,12 +32,12 @@ const Navbar = ({ toggleSidebar }: NavbarProps) => {
       {/* Desktop Header */}
       <div className="hidden lg:flex bg-white shadow-sm border-b px-6 py-4 items-center justify-between h-[60px]">
         <div className="flex items-center space-x-4 ml-220">
-          <div className="relative">
+          <div className="relative ml-30">
             <img src="/images/bell-icon.png" className="h-[25px] w-[25px]"/>
           </div>
-          <div className="flex items-center gap-2 whitespace-nowrap">
+          <div className="flex items-center gap-2 whitespace-nowrap ml-5">
             <img src="/images/Profile.png" className="w-[30px] h-[30px] object-cover rounded-full" alt="Profile" />
-            <span className="font-medium text-[#000000] text-sm">Shop Owner</span>
+            <span className="font-medium text-[#000000] font-[poppins]">Shop Owner</span>
           </div>
 
         </div>
