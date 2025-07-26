@@ -15,9 +15,9 @@ type Props = {
   toggleSidebar: () => void
 }
 
-const Sidebar = ({ activeItem, setActiveItem, isSidebarOpen, toggleSidebar }: Props) => {
+const Sidebar = ({ setActiveItem, isSidebarOpen, toggleSidebar }: Props) => {
   const router = useRouter()
-   const pathname = usePathname()
+  const pathname = usePathname()
 
   const menuItems = [
     { icon: Home, label: 'Dashboard', href: '/shopkeeper' },
@@ -28,18 +28,18 @@ const Sidebar = ({ activeItem, setActiveItem, isSidebarOpen, toggleSidebar }: Pr
     { icon: Megaphone, label: 'Promotions & Marketing', href: '/shopkeeper/Marketing' },
     { icon: BarChart3, label: 'Analytics & Report', href: '/shopkeeper/Analytics' },
     { icon: Settings, label: 'Settings', href: '/shopkeeper/Settings' },
-    { icon: Plus, label: 'Additional Features', href: '/Shopkeeper/Features' },
-    { icon: User, label: 'User Account', href: '/Shopkeeper/Account' },
+    { icon: Plus, label: 'Additional Features', href: '/shopkeeper/Features' },
+    { icon: User, label: 'User Account', href: '/shopkeeper/Account' },
     { icon: CreditCard, label: 'Abandoned Cart & Recovery', href: '/Shopkeeper/Recovery' },
-    { icon: Search, label: 'Search & Navigation', href: '/Shopkeeper/Search' },
-    { icon: CreditCard, label: 'Shipping Cart & Checkout', href: '/Shopkeeper/Checkout' },
-    { icon: TrendingUp, label: 'On-page SEO', href: '/Shopkeeper/SEO' },
-    { icon: HelpCircle, label: 'Contact Support', href: '/Shopkeeper/Support' },
-    { icon: Bell, label: 'Notification', href: '/Shopkeeper/Notifications' },
-    { icon: Shield, label: 'Trust Builder', href: '/Shopkeeper/Trust' },
-    { icon: Store, label: 'Marketplace', href: '/Shopkeeper/Marketplace' },
-    { icon: Shield, label: 'Technical & Security Essentials', href: '/Shopkeeper/Security' },
-    { icon: Package, label: 'Integrations', href: '/Shopkeeper/Integrations' }
+    { icon: Search, label: 'Search & Navigation', href: '/shopkeeper/Search' },
+    { icon: CreditCard, label: 'Shipping Cart & Checkout', href: '/shopkeeper/Checkout' },
+    { icon: TrendingUp, label: 'On-page SEO', href: '/shopkeeper/SEO' },
+    { icon: HelpCircle, label: 'Contact Support', href: '/shopkeeper/Support' },
+    { icon: Bell, label: 'Notification', href: '/shopkeeper/Notifications' },
+    { icon: Shield, label: 'Trust Builder', href: '/shopkeeper/Trust' },
+    { icon: Store, label: 'Marketplace', href: '/shopkeeper/Marketplace' },
+    { icon: Shield, label: 'Technical & Security Essentials', href: '/shopkeeper/Security' },
+    { icon: Package, label: 'Integrations', href: '/shopkeeper/Integrations' }
   ]
 
   return (

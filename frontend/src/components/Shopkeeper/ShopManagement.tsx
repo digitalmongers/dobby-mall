@@ -1,6 +1,7 @@
 'use client';
 import React, { useState } from 'react';
-import { Plus, Store, Activity, Clock, Users, Eye, Edit, LucideIcon } from 'lucide-react';
+import { Plus, Eye, Edit, LucideIcon } from 'lucide-react';
+import {ChevronLeft, ChevronRight } from "lucide-react"
 import Sidebar from "./Sidebar"
 import Navbar from "./Navbar"
 
@@ -80,7 +81,7 @@ const ShopManagement = () => {
       owner: 'Aman Singh',
       dateCreated: 'June-22-2025',
       status: 'Active',
-      statusColor: 'text-green-500'
+      statusColor: "text-[#0FBE06] bg-[#EFFFF9]"
     },
     {
       id: '#SHOP-1002',
@@ -88,7 +89,7 @@ const ShopManagement = () => {
       owner: 'Deepak Yadav',
       dateCreated: 'May-25-2025',
       status: 'Pending',
-      statusColor: 'text-yellow-500'
+      statusColor: 'text-blue-600 bg-[#E9F3FF]'
     },
     {
       id: '#SHOP-1003',
@@ -96,7 +97,7 @@ const ShopManagement = () => {
       owner: 'Sandeep Goutam',
       dateCreated: 'May-20-2025',
       status: 'Suspended',
-      statusColor: 'text-blue-500'
+      statusColor: 'text-[#DEA802] bg-[#FFF9DE]'
     },
     {
       id: '#SHOP-1004',
@@ -104,7 +105,7 @@ const ShopManagement = () => {
       owner: 'Deep Singh',
       dateCreated: 'May-20-2025',
       status: 'Closed',
-      statusColor: 'text-red-500'
+      statusColor: 'text-[#FF0000] bg-[#FFF2F2]'
     }
   ];
 
@@ -136,41 +137,6 @@ const ShopManagement = () => {
     </button>
   );
 
-  const Pagination = () => (
-    <div className="flex items-center justify-center space-x-2 mt-6">
-      <button
-        onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-        className="p-2 text-gray-400 hover:text-gray-600"
-        disabled={currentPage === 1}
-      >
-        ‹
-      </button>
-      {[1, 2, 3, '...', 6].map((page, index) => (
-        <button
-          key={index}
-          onClick={() => typeof page === 'number' && setCurrentPage(page)}
-          className={`px-3 py-1 rounded-md text-sm ${
-            page === currentPage
-              ? 'bg-blue-600 text-white'
-              : page === '...'
-              ? 'text-gray-400 cursor-default'
-              : 'text-gray-600 hover:bg-gray-100'
-          }`}
-          disabled={page === '...'}
-        >
-          {page}
-        </button>
-      ))}
-      <button
-        onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-        className="p-2 text-gray-400 hover:text-gray-600"
-        disabled={currentPage === totalPages}
-      >
-        ›
-      </button>
-    </div>
-  );
-
   return (
     <div className="min-h-screen bg-gray-50 flex">
       {/* Sidebar */}
@@ -189,10 +155,10 @@ const ShopManagement = () => {
         {/* Navbar Component */}
         <Navbar toggleSidebar={toggleSidebar} />
       {/* Main Content*/}
-      <div className="bg-white ">
+      <div className="bg-white font-[poppins]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
-            <h1 className="text-[25px] text-[#000000] font-[poppins]">Shop Management Dashboard</h1>
+            <h1 className="text-xl font-semibold text-gray-900">Shop Management Dashboard</h1>
             <button className="inline-flex items-center px-4 py-2 bg-[#3801FF33] text-[#0000FF] text-xs font-medium rounded-sm hover:bg-blue-700 transition-colors">
               <Plus className="w-4 h-4 mr-2" />
               Create New Shop
@@ -201,17 +167,18 @@ const ShopManagement = () => {
         </div>
       </div>
 
-      <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-8">
+      {/* Stats Cards */}
+      <div className="max-w-12xl px-2 sm:px-6 lg:px-8 py-8">
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-8 ">
            {statsCards.map((card, index) => (
-          <div key={index} className="bg-white rounded-lg shadow-lg border pt-4 pb-4 pr-10 pl-10">
+          <div key={index} className="bg-white rounded-lg shadow-lg border pt-3 pb-3 pr-5 pl-5 ">
         
             {/* Title and Icon on opposite sides */}
             <div className="flex items-center justify-between mb-4">
-              <p className="text-[15px] font-medium text-[#262525]">{card.title}</p>
+              <p className="text-[17px] font-medium text-[#262525]">{card.title}</p>
               <div className={`w-10 h-10 ${card.bgColor} rounded-lg flex items-center justify-center`}>
-                <span className="text-lg ml-2">{card.icon}</span>
+                <span className="text-lg">{card.icon}</span>
               </div>
             </div>
 
@@ -227,59 +194,47 @@ const ShopManagement = () => {
             ))}
           </div>
         {/* Shops Table */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200">
-          <div className="px-6 py-4 border-b border-gray-200 flex items-center justify-between">
-            <h2 className="text-lg font-semibold text-gray-900">Total Shops</h2>
-            <button className="text-blue-600 hover:text-blue-700 text-sm font-medium">
-              View All
-            </button>
+        <div className="bg-gray-300 rounded-lg shadow-lg border">
+          <div className="p-6  flex items-center justify-between">
+            <h2 className="font-medium text-[#000000] flex items-center text-[22px]">Total Shops</h2>
+            <button className="text-[#2F1DF7] text-[18px] hover:text-blue-700">View All</button>
           </div>
 
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-gray-50">
+              <thead className="bg-gray-50 border">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Shop ID
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Shop Name
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Owner
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Date Created
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Status
-                  </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                    Actions
-                  </th>
-                </tr>
+                      {["Shop ID", "Shop Name", "Owner", "Date Created", "Status","Actions"].map((header) => (
+                        <th
+                          key={header}
+                          className="px-6 py-3 text-left text-[15px] font-medium text-[#282727] uppercase tracking-wider"
+                        >
+                          {header}
+                        </th>
+                      ))}
+                    </tr>
               </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white">
                 {shops.map((shop, index) => (
                   <tr key={index} className="hover:bg-gray-50">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <td className="px-6 py-4 text-[14px] font-medium text-[#282727]">
                       {shop.id}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 text-[15px] text-[#282727]">
                       {shop.name}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 text-[15px] text-[#282727]">
                       {shop.owner}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 text-[15px] text-[#282727]">
                       {shop.dateCreated}
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span className={`text-sm font-medium ${shop.statusColor}`}>
+                    <td className="px-6 py-4">
+                      <span className={`inline-flex px-2 py-1 font-small rounded-sm ${shop.statusColor} border text-[12px] font-bold`}>
                         {shop.status}
                       </span>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <td className="px-6 py-4 text-[15px] font-medium text-[#282727]">
                       <div className="flex space-x-2">
                         <ActionButton variant="outline">
                           <Eye className="w-3 h-3 mr-1 inline" />
@@ -297,12 +252,29 @@ const ShopManagement = () => {
             </table>
           </div>
 
-          <div className="px-6 py-4 border-t border-gray-200">
+          <div className="px-6 py-4 border-t bg-gray-50 flex justify-between items-center">
             <div className="flex items-center justify-between">
-              <p className="text-sm text-gray-700">
-                Showing 4 of 24 shops
+              <p className="text-[17px] text-[#282727B2] mt-2">
+                Showing 4 of 245 shops
               </p>
-              <Pagination />
+              <div className="flex items-center space-x-2 ml-170">
+                  <button className="p-1 rounded hover:bg-gray-200 active:bg-blue-600">
+                    <ChevronLeft className="w-4 h-4" />
+                  </button>
+                  {[1, 2, 3, "...", 24].map((num, idx) => (
+                    <span
+                      key={idx}
+                      className={`px-3 py-1 text-sm rounded cursor-pointer hover:bg-gray-200 ${
+                        num === 1 ? "bg-blue-600 text-white" : "text-gray-700" 
+                      }`}
+                    >
+                      {num}
+                    </span>
+                  ))}
+                  <button className="p-1 rounded hover:bg-gray-200">
+                    <ChevronRight className="w-4 h-4" />
+                  </button>
+                </div>
             </div>
           </div>
         </div>

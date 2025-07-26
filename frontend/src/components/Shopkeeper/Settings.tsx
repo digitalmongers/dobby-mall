@@ -4,7 +4,7 @@ import { Users, Search, Filter, Download, RefreshCw, MoreHorizontal, Plus , Chev
 import Sidebar from "./Sidebar"
 import Navbar from "./Navbar"
 
-export default function CustomerManagement() {
+export default function Settings() {
   const [activeMenuItem, setActiveMenuItem] = useState("Dashboard")
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 

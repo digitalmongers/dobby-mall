@@ -1,5 +1,5 @@
-import ShopManagement from '@/components/Shopkeeper/ShopManagement'
+import Marketing from "@/components/Shopkeeper/Marketing"
 
 export default function ShopdashboardPage() {
-  return <ShopManagement />
+  return <Marketing />
 }
